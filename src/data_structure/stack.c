@@ -22,25 +22,53 @@
  *   SOFTWARE.
  */
 
-#ifndef DATA_STRUCTURE_ST_DATA_STRUCTURE_H
-#define DATA_STRUCTURE_ST_DATA_STRUCTURE_H
+#include <data_structure/stack.h>
 
-/*
- * Error codes:
- *  11 - memory allocation error
- *  10 - buffer underflow
- *  12 - invalid index
- */
-#define ST_ENOMEN 12
-#define ST_EBUFUNDR 10
-#define ST_EINVAL 11
-#define ST_ENOCTNR 6
-#define ST_ECTNREND 9
-#define ST_EIDXBND 3
-#define ST_EUNXPLND 1
+st_stack* st_stack_create(size_t size){
+    st_stack *new_stack = malloc(sizeof(st_stack));
+    if(new_stack==NULL){
+        st_errno = ST_ENOMEN;
+        return NULL;
+    }
+    new_stack->list = st_list_create(size);
+    if(new_stack->list==NULL){
+        free(new_stack);
+        st_errno = ST_ENOMEN;
+        return NULL;
+    }
+    new_stack->stack_size = 0;
+    return new_stack;
+}
 
-extern int st_errno;
+void * st_stack_top(st_stack *stack){
+    if(stack == NULL){
+        st_errno = ST_ENOCTNR;
+        return NULL;
+    }
+    if(stack->stack_size == 0){
+        st_errno = ST_EBUFUNDR;
+        return NULL;
+    }
+    return st_list_get(stack->list, stack->stack_size-1);
 
-#define ST_ERRNO_UNDEF
+}
 
-#endif //DATA_STRUCTURE_ST_DATA_STRUCTURE_H
+int st_stack_pop(st_stack *stack){
+    if(stack == NULL){
+        st_errno = ST_ENOCTNR;
+        return -1;
+    }
+    if(stack->stack_size == 0){
+        st_errno = ST_EBUFUNDR;
+        return -1;
+    }
+    return st_list_remove(stack->list,stack->stack_size-1);
+}
+
+int st_stack_push(st_stack* stack, void *value){
+    if(stack == NULL){
+        st_errno = ST_ENOCTNR;
+        return -1;
+    }
+    return st_list_add(stack->list,value);
+}

@@ -25,7 +25,7 @@
 #ifndef DATA_STRUCTURE_LIST_H
 #define DATA_STRUCTURE_LIST_H
 
-#include <data_structure/st_data_structure.h>
+#include "data_structure/data_structure.h"
 #include <stddef.h>
 #include <stdlib.h>
 

@@ -22,6 +22,6 @@
  *   SOFTWARE.
  */
 
-#include <data_structure/st_data_structure.h>
+#include "data_structure/data_structure.h"
 
 int st_errno = 0;

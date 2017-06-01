@@ -24,12 +24,6 @@
 
 #include <data_structure/list.h>
 
-#ifdef ST_ERRNO_UNDEF
-int st_errno = 0;
-#undef ST_ERRNO_UNDEF
-#endif
-
-
 static node * create_node(){
     node * new_node = malloc(sizeof(node));
     if(new_node == NULL){

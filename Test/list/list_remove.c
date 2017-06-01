@@ -22,6 +22,36 @@
  *   SOFTWARE.
  */
 
-#include <data_structure/data_structure.h>
+#include <stdio.h>
+#include <data_structure/list.h>
 
-int st_errno = 0;
+int main(){
+    List* list = st_list_create(sizeof(int));
+    for (int i = 0; i <10 ; ++i) {
+        if(st_list_add(list,&i)==-1){
+            return st_errno;
+        }
+        for (int j = 0; j <= i ; ++j) {
+            printf("%d ", *(int*)st_list_get(list,j));
+        }
+        printf("\n");
+    }
+    for (int i = 9; i >=0 ; --i) {
+
+        if(st_list_remove(list,i)==-1){
+            return st_errno;
+        }
+        st_list_iter iter = st_list_get_iter(list);
+        while(st_list_iter_get(iter)!=NULL){
+            printf("%d ", *(int*)st_list_iter_get(iter));
+            fflush(stdout);
+            st_list_next(iter);
+        }
+        printf("\n");
+    }
+    st_list_iter iter = st_list_get_iter(list);
+    while(*iter!=NULL){
+        printf("%d ", *(int*)st_list_iter_get(iter));
+    }
+    return 0;
+}

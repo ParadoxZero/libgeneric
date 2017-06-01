@@ -105,6 +105,7 @@ int st_list_remove(List* list, unsigned int index){
             list->size--;
             return 0;
         }
+        i++;
     }
     st_errno = ST_EINVAL;
     return -1;
@@ -134,11 +135,13 @@ st_list_iter st_list_get_iter(List* list){
         st_errno = ST_ENOCTNR;
         return NULL;
     }
-    return &list->head;
+    node **iter = malloc(sizeof(node *));
+    *iter = list->head;
+    return iter;
 }
 
 int st_list_next(st_list_iter iter){
-    if(iter == NULL){
+    if(*iter == NULL){
         st_errno = ST_ECTNREND;
         return 1;
     }
@@ -147,7 +150,7 @@ int st_list_next(st_list_iter iter){
 }
 
 void* st_list_iter_get(st_list_iter iter){
-    if(iter == NULL){
+    if(*iter == NULL){
         st_errno = ST_ECTNREND;
         return NULL;
     }

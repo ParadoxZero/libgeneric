@@ -26,16 +26,38 @@
 #define DATA_STRUCTURE_LIST_H
 
 #include <data_structure/st_data_structure.h>
+#include <stddef.h>
+#include <stdlib.h>
 
-typedef struct{
-    void *head;
-    int size;
+#include <string.h>
+
+
+
+typedef struct node {
+    void *data;
+    struct node* next;
+} node;
+
+typedef struct List{
+    node *head;
+    size_t size;
     int list_size;
 } List;
 
-List* st_list_create(int size);
+typedef node** st_list_iter;
 
-int st_list_remove(List* list, int index);
+List* st_list_create(size_t size);
+
+int st_list_remove(List* list, unsigned int index);
 
 int st_list_add(List* list, void *value);
+
+void* st_list_get(List*, unsigned int index);
+
+st_list_iter st_list_get_iter(List* list);
+
+int st_list_next(st_list_iter);
+
+void* st_list_iter_get(st_list_iter);
+
 #endif //DATA_STRUCTURE_LIST_H

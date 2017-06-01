@@ -22,7 +22,5 @@
  *   SOFTWARE.
  */
 
-void test(){
-    st
-}
+
 

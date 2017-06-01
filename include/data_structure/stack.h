@@ -26,15 +26,17 @@
 #define DATA_STRUCTURE_STACK_H
 
 #include <data_structure/st_data_structure.h>
-typedef struct {
-    void *head;
-    int size;
-};
+#include <data_structure/list.h>
 
-st_stack create_stack(int size);
+typedef struct st_stack {
+    List list;
+    int stack_size;
+} st_stack ;
 
-void * st_pop(st_stack stack);
+st_stack* create_stack(size_t size);
 
-int st_push(st_stack stack, void *s);
+void * st_pop(st_stack* stack);
+
+int st_push(st_stack* stack, void *s);
 
 #endif //DATA_STRUCTURE_STACK_H

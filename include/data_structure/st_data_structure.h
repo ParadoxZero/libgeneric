@@ -31,9 +31,13 @@
  *  10 - buffer underflow
  *  12 - invalid index
  */
-#define ST_MEM_ERR 11
-#define ST_BUFFER_UNDERFLOW 10
-#define ST_INVALID_PARAMETER 12
+#define ST_ENOMEN 12
+#define ST_EBUFUNDR 10
+#define ST_EINVAL 11
+#define ST_ENOCTNR 6
+#define ST_ECTNREND 9
+#define ST_EIDXBND 3
+#define ST_EUNXPLND 1
 
 extern int st_errno;
 

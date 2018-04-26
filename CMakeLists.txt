@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.6)
+cmake_minimum_required(VERSION 3.5)
 project(data_structure)
 
 set(CMAKE_C_STANDARD 99)
@@ -6,6 +6,7 @@ set(CMAKE_C_STANDARD 99)
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/include)
 add_subdirectory(src)
 add_subdirectory(Test)
+
 enable_testing()
-add_test(list_add list_add)
+
 

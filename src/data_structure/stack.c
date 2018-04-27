@@ -24,8 +24,8 @@
 
 #include <data_structure/stack.h>
 
-st_stack* st_stack_create(size_t size){
-    st_stack *new_stack = malloc(sizeof(st_stack));
+stStack* st_stack_create(size_t size){
+    stStack *new_stack = malloc(sizeof(stStack));
     if(new_stack==NULL){
         st_errno = ST_ENOMEN;
         return NULL;
@@ -40,7 +40,7 @@ st_stack* st_stack_create(size_t size){
     return new_stack;
 }
 
-void * st_stack_top(st_stack *stack){
+void * st_stack_top(stStack *stack){
     if(stack == NULL){
         st_errno = ST_ENOCTNR;
         return NULL;
@@ -53,7 +53,7 @@ void * st_stack_top(st_stack *stack){
 
 }
 
-int st_stack_pop(st_stack *stack){
+int st_stack_pop(stStack *stack){
     if(stack == NULL){
         st_errno = ST_ENOCTNR;
         return -1;
@@ -65,7 +65,7 @@ int st_stack_pop(st_stack *stack){
     return st_list_remove(stack->list,stack->stack_size-1);
 }
 
-int st_stack_push(st_stack* stack, void *value){
+int st_stack_push(stStack* stack, void *value){
     if(stack == NULL){
         st_errno = ST_ENOCTNR;
         return -1;

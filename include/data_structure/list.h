@@ -42,19 +42,19 @@ typedef struct List{
     node *head;
     size_t size;
     int list_size;
-} List;
+} stList;
 
 typedef node** st_list_iter;
 
-List* st_list_create(size_t size);
+stList* st_list_create(size_t size);
 
-int st_list_remove(List* list, unsigned int index);
+int st_list_remove(stList* list, unsigned int index);
 
-int st_list_add(List* list, void *value);
+int st_list_add(stList* list, void *value);
 
-void* st_list_get(List*, unsigned int index);
+void* st_list_get(stList*, unsigned int index);
 
-st_list_iter st_list_get_iter(List* list);
+st_list_iter st_list_get_iter(stList* list);
 
 int st_list_next(st_list_iter);
 

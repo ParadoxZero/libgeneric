@@ -29,16 +29,16 @@
 #include <data_structure/list.h>
 
 typedef struct st_stack {
-    List *list;
+    stList *list;
     unsigned int stack_size;
-} st_stack ;
+} stStack ;
 
-st_stack* st_stack_create(size_t size);
+stStack* st_stack_create(size_t size);
 
-void * st_stack_top(st_stack *stack);
+void * st_stack_top(stStack *stack);
 
-int st_stack_pop(st_stack *stack);
+int st_stack_pop(stStack *stack);
 
-int st_stack_push(st_stack* stack, void *s);
+int st_stack_push(stStack* stack, void *s);
 
 #endif //DATA_STRUCTURE_STACK_H

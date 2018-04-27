@@ -26,7 +26,7 @@
 #include <data_structure/list.h>
 
 int main(){
-    List* list = st_list_create(sizeof(int));
+    stList* list = st_list_create(sizeof(int));
     for (int i = 0; i <10 ; ++i) {
         if(st_list_add(list,&i)==-1){
             return st_errno;

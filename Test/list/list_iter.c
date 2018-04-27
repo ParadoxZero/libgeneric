@@ -26,7 +26,7 @@
 #include <data_structure/list.h>
 
 int main(){
-    List* list = st_list_create(sizeof(int));
+    stList* list = st_list_create(sizeof(int));
     for (int i = 0; i <10 ; ++i) {
         if(st_list_add(list,&i)==-1){
             return st_errno;
@@ -34,8 +34,10 @@ int main(){
     }
     st_list_iter iter = st_list_get_iter(list);
     printf("%d\n", *(int*)st_list_iter_get(iter));
-    while(st_list_next(iter)==0){
+    while(*(iter)!=NULL){
         printf("%d\n", *(int*)st_list_iter_get(iter));
+        if(st_list_next(iter))
+            break;
     }
     return 0;
 }

@@ -35,8 +35,8 @@ static node * create_node(){
     return new_node;
 }
 
-List * st_list_create(size_t size){
-    List* new_list = (List*) malloc(sizeof(List));
+stList * st_list_create(size_t size){
+    stList* new_list = (stList*) malloc(sizeof(stList));
     if (new_list == NULL){
         st_errno = ST_ENOMEN;
         return NULL;
@@ -47,7 +47,7 @@ List * st_list_create(size_t size){
     return new_list;
 }
 
-int st_list_add(List* list, void *value){
+int st_list_add(stList* list, void *value){
     if(list->head == NULL){
         node *head = create_node();
         if(head == NULL){
@@ -83,7 +83,7 @@ int st_list_add(List* list, void *value){
     return 0;
 }
 
-int st_list_remove(List* list, unsigned int index){
+int st_list_remove(stList* list, unsigned int index){
     if(list->list_size < index+1){
         st_errno = ST_EBUFUNDR;
         return -1;
@@ -111,7 +111,7 @@ int st_list_remove(List* list, unsigned int index){
     return -1;
 }
 
-void* st_list_get(List* list, unsigned int index){
+void* st_list_get(stList* list, unsigned int index){
     if(list->list_size-1 < index){
         st_errno = ST_EIDXBND;
         return NULL;
@@ -130,7 +130,7 @@ void* st_list_get(List* list, unsigned int index){
     return NULL;
 }
 
-st_list_iter st_list_get_iter(List* list){
+st_list_iter st_list_get_iter(stList* list){
     if(list == NULL){
         st_errno = ST_ENOCTNR;
         return NULL;
@@ -141,7 +141,7 @@ st_list_iter st_list_get_iter(List* list){
 }
 
 int st_list_next(st_list_iter iter){
-    if(*iter == NULL){
+    if((*iter) == NULL){
         st_errno = ST_ECTNREND;
         return 1;
     }

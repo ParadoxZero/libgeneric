@@ -1,7 +1,7 @@
 /*
  *   MIT License
  *
- *   Copyright (c) 2017 Sidhin S Thomas
+ *   Copyright (c) 2017-2018 Sidhin S Thomas
  *
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
  *   of this software and associated documentation files (the "Software"), to deal
@@ -28,17 +28,79 @@
 #include <data_structure/data_structure.h>
 #include <data_structure/list.h>
 
+/*
+ * This structure represents a stack.
+ * It contains all the information regarding the stack.
+ */
 typedef struct st_stack {
     stList *list;
     unsigned int stack_size;
 } stStack ;
 
-stStack* st_stack_create(size_t size);
+/*
+ * Function: stCreateStack
+ * ----------------------
+ * Creates a stack, allocates necessary memories and returns the pointer.
+ *
+ *  @param itemSize:    The size of the items that will be stored within the stack
+ *
+ *  @return:            A pointer to the stack that was created.
+ *                      May return 'NULL' in case of failure to allocate necessary memory.
+ */
+stStack* stCreateStack(size_t itemSize);
 
-void * st_stack_top(stStack *stack);
+/*
+ * Function: stDeleteStack
+ * ----------------------
+ * Deletes a previously created stack and free associated memories
+ *
+ *  @param stack:       The stack to be deleted.
+ *
+ *  @return:            A pointer to the stack that was created.
+ *                      May return 'NULL' in case of failure to allocate necessary memory.
+ */
+int stDeleteStack(stStack *stack);
 
-int st_stack_pop(stStack *stack);
+/*
+ * Function: stGetStackTop
+ * ----------------------
+ * Returns the data contained in the top of stack.
+ *
+ *  @param stack:       The stack whose top is required
+ *
+ *  @return:            A pointer to the location constaing the data.
+ *                      he pointer should be casted to the type of the
+ *                      data before being used.
+ *                      May return 'NULL' in case of failure.
+ *                      Check st_errno for reason.
+ */
+void * stGetStackTop(stStack *stack);
 
-int st_stack_push(stStack* stack, void *s);
+/*
+ * Function: stPopStack
+ * ----------------------
+ * Removes the top element of the stack.
+ *
+ *  @param stack:       The stack whose top is to be removed.
+ *
+ *  @return:            An integer representing the success or failure of operation.
+ *                      ( 0) -> Success
+ *                      (-1) -> Failed
+ */
+int stPopStack(stStack *stack);
+
+/*
+ * Function: stPushStack
+ * ----------------------
+ * Pushed a data into the stack.
+ *
+ *  @param stack:       The stack where the data is to be pushed.
+ *  @param item:        The pointer to the data to be pushed.
+ *
+ *  @return:            An integer representing the success or failure of operation.
+ *                      ( 0) -> Success
+ *                      (-1) -> Failed
+ */
+int stPushStack(stStack *stack, void *item);
 
 #endif //DATA_STRUCTURE_STACK_H

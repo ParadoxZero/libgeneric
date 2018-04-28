@@ -24,13 +24,13 @@
 
 #include <data_structure/stack.h>
 
-stStack* st_stack_create(size_t size){
+stStack* stCreateStack(size_t size){
     stStack *new_stack = malloc(sizeof(stStack));
     if(new_stack==NULL){
         st_errno = ST_ENOMEN;
         return NULL;
     }
-    new_stack->list = st_list_create(size);
+    new_stack->list = stCreateList(size);
     if(new_stack->list==NULL){
         free(new_stack);
         st_errno = ST_ENOMEN;
@@ -40,35 +40,38 @@ stStack* st_stack_create(size_t size){
     return new_stack;
 }
 
-void * st_stack_top(stStack *stack){
+//TODO: Implement DeleteStack
+
+
+void * stGetStackTop(stStack *stack){
     if(stack == NULL){
-        st_errno = ST_ENOCTNR;
+        st_errno = ST_ENOITM;
         return NULL;
     }
     if(stack->stack_size == 0){
         st_errno = ST_EBUFUNDR;
         return NULL;
     }
-    return st_list_get(stack->list, stack->stack_size-1);
+    return stGetListItem(stack->list, stack->stack_size - 1);
 
 }
 
-int st_stack_pop(stStack *stack){
+int stPopStack(stStack *stack){
     if(stack == NULL){
-        st_errno = ST_ENOCTNR;
+        st_errno = ST_ENOITM;
         return -1;
     }
     if(stack->stack_size == 0){
         st_errno = ST_EBUFUNDR;
         return -1;
     }
-    return st_list_remove(stack->list,stack->stack_size-1);
+    return stRemoveItemList(stack->list, 0);
 }
 
-int st_stack_push(stStack* stack, void *value){
+int stPushStack(stStack *stack, void *value){
     if(stack == NULL){
-        st_errno = ST_ENOCTNR;
+        st_errno = ST_ENOITM;
         return -1;
     }
-    return st_list_add(stack->list,value);
+    return stAddListItemAt(stack->list, value,0);
 }

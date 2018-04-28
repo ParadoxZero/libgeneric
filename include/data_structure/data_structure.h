@@ -26,13 +26,11 @@
 #define DATA_STRUCTURE_ST_DATA_STRUCTURE_H
 
 
-#define ST_ENOMEN 12
-#define ST_EBUFUNDR 10
-#define ST_EINVAL 11
-#define ST_ENOCTNR 6
-#define ST_ECTNREND 9
-#define ST_EIDXBND 3
-#define ST_EUNXPLND 1
+#define ST_ENOMEN       12  /* No memory */
+#define ST_EBUFUNDR     10  /* Underflow */
+#define ST_EINVAL       11  /* Invalid Value Given */
+#define ST_ENOITM       6   /* Instance Empty */
+#define ST_EITMEND      9   /* End of Linear Data Structure */
 
 extern int st_errno;
 

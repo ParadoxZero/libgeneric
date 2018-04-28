@@ -1,7 +1,7 @@
 /*
  *   MIT License
  *
- *   Copyright (c) 2017-2018 Sidhin S Thomas
+ *   Copyright (c) 2018 Sidhin S Thomas
  *
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
  *   of this software and associated documentation files (the "Software"), to deal
@@ -21,14 +21,13 @@
  *   OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  *   SOFTWARE.
  */
-
-#include <stdio.h>
 #include <data_structure/list.h>
+#include <stdio.h>
 
 int main(){
     stList* list = stCreateList(sizeof(int));
     for (int i = 0; i <10 ; ++i) {
-        if(stAddListItem(list, &i)==-1){
+        if(stAddListItemAt(list, &i,0)==-1){
             return st_errno;
         }
         for (int j = 0; j <= i ; ++j) {

@@ -1,7 +1,7 @@
 /*
  *   MIT License
  *
- *   Copyright (c) 2017 Sidhin S Thomas
+ *   Copyright (c) 2017-2018 Sidhin S Thomas
  *
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
  *   of this software and associated documentation files (the "Software"), to deal
@@ -26,17 +26,17 @@
 #include <data_structure/list.h>
 
 int main(){
-    stList* list = st_list_create(sizeof(int));
+    stList* list = stCreateList(sizeof(int));
     for (int i = 0; i <10 ; ++i) {
-        if(st_list_add(list,&i)==-1){
+        if(stAddListItem(list, &i)==-1){
             return st_errno;
         }
     }
-    st_list_iter iter = st_list_get_iter(list);
-    printf("%d\n", *(int*)st_list_iter_get(iter));
+    stListIterator iter = stGetListIterator(list);
+    printf("%d\n", *(int*) stGetListIteratorData(iter));
     while(*(iter)!=NULL){
-        printf("%d\n", *(int*)st_list_iter_get(iter));
-        if(st_list_next(iter))
+        printf("%d\n", *(int*) stGetListIteratorData(iter));
+        if(stListIteratorNext(iter))
             break;
     }
     return 0;

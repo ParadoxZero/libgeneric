@@ -1,7 +1,7 @@
 /*
  *   MIT License
  *
- *   Copyright (c) 2017 Sidhin S Thomas
+ *   Copyright (c) 2017-2018 Sidhin S Thomas
  *
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
  *   of this software and associated documentation files (the "Software"), to deal
@@ -26,32 +26,32 @@
 #include <data_structure/list.h>
 
 int main(){
-    stList* list = st_list_create(sizeof(int));
+    stList* list = stCreateList(sizeof(int));
     for (int i = 0; i <10 ; ++i) {
-        if(st_list_add(list,&i)==-1){
+        if(stAddListItem(list, &i)==-1){
             return st_errno;
         }
         for (int j = 0; j <= i ; ++j) {
-            printf("%d ", *(int*)st_list_get(list,j));
+            printf("%d ", *(int*) stGetListItem(list, j));
         }
         printf("\n");
     }
     for (int i = 9; i >=0 ; --i) {
 
-        if(st_list_remove(list,i)==-1){
+        if(stRemoveItemList(list, i)==-1){
             return st_errno;
         }
-        st_list_iter iter = st_list_get_iter(list);
-        while(st_list_iter_get(iter)!=NULL){
-            printf("%d ", *(int*)st_list_iter_get(iter));
+        stListIterator iter = stGetListIterator(list);
+        while(stGetListIteratorData(iter)!=NULL){
+            printf("%d ", *(int*) stGetListIteratorData(iter));
             fflush(stdout);
-            st_list_next(iter);
+            stListIteratorNext(iter);
         }
         printf("\n");
     }
-    st_list_iter iter = st_list_get_iter(list);
+    stListIterator iter = stGetListIterator(list);
     while(*iter!=NULL){
-        printf("%d ", *(int*)st_list_iter_get(iter));
+        printf("%d ", *(int*) stGetListIteratorData(iter));
     }
     return 0;
 }

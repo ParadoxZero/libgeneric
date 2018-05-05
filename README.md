@@ -19,4 +19,4 @@ Please contribute to it and help implement most of the common structures.
 
 Ensure it's buildable. Write a test for each function you implement.
 
-Use keep it generic. (`void*`)
+Keep it generic. (use `void*`)

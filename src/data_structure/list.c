@@ -54,7 +54,17 @@ stList * stCreateList(size_t size){
     return new_list;
 }
 
-//TODO: Implement DeleteList
+void stDeleteList(stList *list){
+    if(list->head!=NULL){
+        node* tmp = list->head;
+        while(tmp!=NULL){ // Free Memory allocated to list
+            node* old_ptr = tmp->next;
+            free(tmp);
+            tmp=old_ptr;
+        }
+    }
+    free(list);
+}
 int stAddListItem(stList *list, void *value){
     if(list->head == NULL){
         node *head = create_node(NULL,value,list->itemSize);

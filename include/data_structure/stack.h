@@ -21,7 +21,13 @@
  *   OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  *   SOFTWARE.
  */
-
+/*
+ * @file    stack.h
+ *
+ * @brief   Stack is a LIFO data structure implemented on top of @ref List.h
+ *
+ *
+ */
 #ifndef DATA_STRUCTURE_STACK_H
 #define DATA_STRUCTURE_STACK_H
 
@@ -56,10 +62,9 @@ stStack* stCreateStack(size_t itemSize);
  *
  *  @param stack:       The stack to be deleted.
  *
- *  @return:            A pointer to the stack that was created.
- *                      May return 'NULL' in case of failure to allocate necessary memory.
+ *  @return:            Nothing.
  */
-int stDeleteStack(stStack *stack);
+void stDeleteStack(stStack *stack);
 
 /*
  * Function: stGetStackTop

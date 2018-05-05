@@ -40,7 +40,10 @@ stStack* stCreateStack(size_t size){
     return new_stack;
 }
 
-//TODO: Implement DeleteStack
+void stDeleteStack(stStack *stack){
+    stDeleteList(stack->list);
+    free(stack);
+}
 
 
 void * stGetStackTop(stStack *stack){

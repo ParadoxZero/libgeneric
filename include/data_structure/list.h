@@ -92,10 +92,9 @@ stList* stCreateList(size_t itemSize);
  *
  *  @param stack:       The list to be deleted.
  *
- *  @return:            A pointer to the stack that was created.
- *                      May return 'NULL' in case of failure to allocate necessary memory.
+ *  @return:            Nothing.
  */
-int stDeleteList(stList *list);
+void stDeleteList(stList *list);
 
 /*
  * Function: stAddItemList

@@ -1,9 +1,9 @@
 # libgeneric
-General Purpose, Generic Data Structure library for C. 
+General Purpose, Generic Data Structure library for C.
 
 ## Implemented Data structures
 * Linked List
-* Stack
+* Stack ( untested )
 
 ## Checklist left to implment ( not exhaustive )
 

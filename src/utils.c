@@ -33,7 +33,7 @@ void swap_generic(void *a,void *b,size_t sz)
 	memcpy(b,x,sz);	// Copy saved A to B
 }
 
-void *search_generic(void *key,void *base,size_t n,size_t elem_sz)
+void *search_generic(const void *key,const void *base,size_t n,size_t elem_sz)
 {
 	char *x=(char*)base;
 	int i;

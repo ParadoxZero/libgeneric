@@ -32,5 +32,5 @@
 #define	DATA_STRUCTURE_UTILS_H
 #include <stddef.h>	// size_t
 extern void swap_generic(void *a,void *b,size_t sz);
-extern void *search_generic(void *key,void *base,size_t n,size_t elem_sz);
+extern void *search_generic(const void *key,const void *base,size_t n,size_t elem_sz);
 #endif

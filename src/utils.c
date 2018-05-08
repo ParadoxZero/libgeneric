@@ -23,7 +23,7 @@
  */
 
 #include <data_structure/utils.h>
-#include <string.h>	// memcpy
+#include <string.h>	// memcpy and NULL
 
 void swap_generic(void *a,void *b,size_t sz)
 {
@@ -31,5 +31,18 @@ void swap_generic(void *a,void *b,size_t sz)
 	memcpy(x,a,sz);	// Save A
 	memcpy(a,b,sz);	// Copy B to A
 	memcpy(b,x,sz);	// Copy saved A to B
+}
+
+void *search_generic(void *key,void *base,size_t n,size_t elem_sz)
+{
+	char *x=(char*)base;
+	int i;
+	for(i=0;i<n;i++){
+		if(!memcmp(key,x,elem_sz)){
+			return x;
+		}
+		x=(char*)x+elem_sz;
+	}
+	return NULL;
 }
 

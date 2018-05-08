@@ -22,7 +22,7 @@
  *   SOFTWARE.
  */
 
-#include <generic/swap.h>
+#include <data_structure/utils.h>
 #include <string.h>	// memcpy
 
 void swap_generic(void *a,void *b,size_t sz)

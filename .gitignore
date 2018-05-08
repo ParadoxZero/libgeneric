@@ -125,3 +125,10 @@ dkms.conf
 *build*/
 .vscode
 .idea/
+
+# CMake stuff
+CMakeCache.txt
+Makefile
+cmake_install.cmake
+CTestTestfile.cmake
+CMakeFiles/

@@ -5,13 +5,13 @@ General Purpose, Generic Data Structure library for C.
 * Linked List
 * Stack ( untested )
 
-## Checklist left to implment ( not exhaustive )
+## Checklist left to implement ( not exhaustive )
 
 - [ ] Queue
 - [ ] Binary Trees
 - [ ] Binary Search Trees
 - [ ] AVL Trees
-- [ ] Graohs
+- [ ] Graphs
 
 ## Contributing
 

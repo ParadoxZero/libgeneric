@@ -23,7 +23,7 @@
  */
 
 #include <stdio.h>
-#include <generic/swap.h>
+#include <data_structure/utils.h>
 
 int main(void)
 {

@@ -40,7 +40,8 @@ stStack* stCreateStack(size_t size){
     return new_stack;
 }
 
-void stDeleteStack(stStack *stack){
+void stDeleteStack(stStack *stack)
+{
     stDeleteList(stack->list);
     free(stack);
 }
@@ -59,7 +60,8 @@ void * stGetStackTop(stStack *stack){
 
 }
 
-int stPopStack(stStack *stack){
+int stPopStack(stStack *stack)
+{
     if(stack == NULL){
         st_errno = ST_ENOITM;
         return -1;
@@ -71,7 +73,8 @@ int stPopStack(stStack *stack){
     return stRemoveItemList(stack->list, 0);
 }
 
-int stPushStack(stStack *stack, void *value){
+int stPushStack(stStack *stack, void *value)
+{
     if(stack == NULL){
         st_errno = ST_ENOITM;
         return -1;

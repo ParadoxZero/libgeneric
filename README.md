@@ -1,34 +1,23 @@
 # libgeneric
-
-| Build Status | License |
-|--------------|---------|
-|[![Build status](https://ci.appveyor.com/api/projects/status/e0aa56efs3xkbxob/branch/master?svg=true)](https://ci.appveyor.com/project/ParadoxZero/libgeneric/branch/master)| [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) |
-
 General Purpose, Generic Data Structure library for C.
 
-## Data structures
+## Implemented Data structures
+* Linked List
+* Legacy Stack ( untested )
+* New Stack ( contributed )
 
-- [x] Linked List
-- [x] Vector
-- [x] Linked Stack
-- [ ] Vector Stack
-- [ ] Linked Queue
-- [x] Vector Queue
+## Checklist left to implement ( not exhaustive )
+
+- [ ] Queue
 - [ ] Binary Trees
-- [x] Binary Search Trees
+- [ ] Binary Search Trees
 - [ ] AVL Trees
 - [ ] Graphs
 
-## Algorithms
-
-- [ ] Quick Sort
-- [ ] Merge Sort
-- [ ] Binary Search
-
 ## Contributing
 
-Please contribute to it and help implement most of the common structures.
+Please contribute to it and help implement most of the common structures. 
 
-The aim is to build a reusable standard datastructure library for different c-based projects.
+Ensure it's buildable. Write a test for each function you implement.
 
-Read the [contributing guidelines](https://github.com/ParadoxZero/libgeneric/wiki/Contribution-guidelines) before sending a pull request.
+Keep it generic. (use `void*`)

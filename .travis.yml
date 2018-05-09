@@ -1,6 +1,6 @@
 language: c
 sudo: required
-platform: trusty
+dist: trusty
 compiler: gcc
 before_script:
   - sudo apt-get install doxygen cmake

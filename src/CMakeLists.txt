@@ -8,4 +8,6 @@ target_link_libraries(st_list st_data_structure)
 add_library(st_stack data_structure/stack.c)
 target_link_libraries(st_stack st_list st_data_structure)
 
+add_library(st_nstack data_structure/new_stack.c)
+
 add_library(st_utils utils.c)

@@ -22,7 +22,7 @@
  *   SOFTWARE.
  */
 
- /*
+ /**
   * @file   list.h
   *
   * @brief Resizable generic container. Linked List, data stored in non continuous locations.
@@ -40,8 +40,12 @@
 
 #include <string.h>
 
+/** @defgroup list Linked List
+ * This deals with Linked List
+ * @{
+ */
 
-/*
+/**
  * This is the structure that stores the data being given to list.
  * It is best to not touching it in application program.
  */
@@ -50,7 +54,7 @@ typedef struct node {
     struct node* next;
 } node;
 
-/*
+/**
  * The structure representing the List.
  * When a new list is created, a new object of this
  * structure is created
@@ -63,15 +67,13 @@ typedef struct List{
 
 typedef node** stListIterator;
 
-/*
+/**
  * Used to signal the functions that the operation should be done
  * to last item of the list
  */
 #define stLIST_END (-1)
 
-/*
- * Function: stCreateList
- * ----------------------
+/**
  * Creates and initializes a List
  *
  *  @param itemSize:    The itemSize of data members that are to be stored.
@@ -84,9 +86,7 @@ typedef node** stListIterator;
  */
 stList* stCreateList(size_t itemSize);
 
-/*
- * Function: stDeleteList
- * ----------------------
+/**
  * Deletes a previously created list and free associated memories
  *
  *  @param stack:       The list to be deleted.
@@ -95,9 +95,7 @@ stList* stCreateList(size_t itemSize);
  */
 void stDeleteList(stList *list);
 
-/*
- * Function: stAddItemList
- * ----------------------
+/**
  * Removes a previously inserted node
  *
  *  @param list:    The list from which the node is to be removed.
@@ -114,9 +112,7 @@ void stDeleteList(stList *list);
  */
 int stAddListItem(stList *list, void *value);
 
-/*
- * Function: stAddItemListAt
- * ----------------------
+/**
  * Removes a previously inserted node
  *
  *  @param list:    The list from which the node is to be removed.
@@ -135,9 +131,7 @@ int stAddListItem(stList *list, void *value);
  */
 int stAddListItemAt(stList *list, void *value, unsigned int index);
 
-/*
- * Function: stRemoveItemList
- * ----------------------
+/**
  * Removes a previously inserted node
  *
  *  @param list:    The list from which the node is to be removed.
@@ -150,9 +144,7 @@ int stAddListItemAt(stList *list, void *value, unsigned int index);
  */
 int stRemoveItemList(stList *list, unsigned int index);
 
-/*
- * Function: stGetListItem
- * ----------------------
+/**
  * Retrieves the item stored in the given list from given index.
  *
  *  @param list:    The list from which node is to be retrieved.
@@ -165,9 +157,7 @@ int stRemoveItemList(stList *list, unsigned int index);
  */
 void* stGetListItem(stList *list, unsigned int index);
 
-/*
- * Function: stListIterator
- * ----------------------
+/**
  * Iterator is an object ( a pointer ) which can be used to loop through the list.
  * It is important to interact with iterator using only the library
  * functions.
@@ -179,9 +169,7 @@ void* stGetListItem(stList *list, unsigned int index);
  */
 stListIterator stGetListIterator(stList *list);
 
-/*
- * Function: stListIteratorNext
- * ----------------------
+/**
  * This function moves the iterator to the next node.
  *
  *  @param iter:    The iterator to be moved.
@@ -193,9 +181,7 @@ stListIterator stGetListIterator(stList *list);
  */
 int stListIteratorNext(stListIterator iter);
 
-/*
- * Function: stGetListIteratorData
- * ----------------------
+/**
  * Returns the value stored in the node the iterator is currently visiting.
  *
  *  @param iterator:    The list from which node is to be retrieved.
@@ -206,5 +192,5 @@ int stListIteratorNext(stListIterator iter);
  *                      May return 'NULL' in that case of invalid iterator, or empty list.
  */
 void* stGetListIteratorData(stListIterator iterator);
-
+/** @} */
 #endif //DATA_STRUCTURE_LIST_H

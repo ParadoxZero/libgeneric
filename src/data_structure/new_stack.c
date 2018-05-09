@@ -43,5 +43,8 @@ void stack_destroy(stack_t *stack)
 {
 	assert(stack!=NULL);
 	free(stack->elems);
+	stack->logical=0;
+	stack->alloc=0;
+	stack->elems=NULL;
 }
 

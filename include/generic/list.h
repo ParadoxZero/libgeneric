@@ -1,7 +1,7 @@
 /*
  *   MIT License
  *
- *   Copyright (c) 2017-2018 Sidhin S Thomas <sidhin.thomas@gmail.com>
+ *   Copyright (c) 2017-2018 Sidhin S Thomas
  *
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
  *   of this software and associated documentation files (the "Software"), to deal
@@ -34,12 +34,16 @@
 #ifndef DATA_STRUCTURE_LIST_H
 #define DATA_STRUCTURE_LIST_H
 
-#include <generic.h>
+#include <data_structure/data_structure.h>
 #include <stddef.h>
 #include <stdlib.h>
 
 #include <string.h>
 
+/** @defgroup list Linked List
+ * This deals with Linked List
+ * @{
+ */
 
 /**
  * This is the structure that stores the data being given to list.
@@ -55,23 +59,21 @@ typedef struct node {
  * When a new list is created, a new object of this
  * structure is created
  */
-typedef struct gList{
+typedef struct List{
     node *head;
     size_t itemSize;
     int listLength;
-} gList;
+} stList;
 
-typedef node** gListIterator;
+typedef node** stListIterator;
 
 /**
  * Used to signal the functions that the operation should be done
  * to last item of the list
  */
-#define gLIST_END (-1)
+#define stLIST_END (-1)
 
 /**
- * Function: gListCreate
- * ----------------------
  * Creates and initializes a List
  *
  *  @param itemSize:    The itemSize of data members that are to be stored.
@@ -80,24 +82,20 @@ typedef node** gListIterator;
  *
  *  Example
  *  To create a list to store integers.
- *      gList *list = gCreateList(sizeof(int));
+ *      stList *list = stCreateList(sizeof(int));
  */
-gList* gListCreate(size_t itemSize);
+stList* stCreateList(size_t itemSize);
 
 /**
- * Function: gListDelete
- * ----------------------
  * Deletes a previously created list and free associated memories
  *
  *  @param stack:       The list to be deleted.
  *
  *  @return:            Nothing.
  */
-void gListDelete(gList *list);
+void stDeleteList(stList *list);
 
 /**
- * Function: gListAddItem
- * ----------------------
  * Removes a previously inserted node
  *
  *  @param list:    The list from which the node is to be removed.
@@ -112,11 +110,9 @@ void gListDelete(gList *list);
  *                   (0) -> Successful
  *                  (-1) -> Failed
  */
-int gListAddItem(gList *list, void *value);
+int stAddListItem(stList *list, void *value);
 
 /**
- * Function: gListAddItemAt
- * ----------------------
  * Removes a previously inserted node
  *
  *  @param list:    The list from which the node is to be removed.
@@ -133,26 +129,22 @@ int gListAddItem(gList *list, void *value);
  *                   (0) -> Successful
  *                  (-1) -> Failed
  */
-int gListAddItemAt(gList *list, void *value, unsigned int index);
+int stAddListItemAt(stList *list, void *value, unsigned int index);
 
 /**
- * Function: gListRemoveItem
- * ----------------------
  * Removes a previously inserted node
  *
  *  @param list:    The list from which the node is to be removed.
  *  @param index:   The index of the item to be removed.
- *                  use MACRO -> gLIST_END, to remove last item of the list.
+ *                  use MACRO -> stLIST_END, to remove last item of the list.
  *
  *  @return:        An integer signally success or failure of operation.
  *                   (0) -> Successful
  *                  (-1) -> Failed
  */
-int gListRemoveItem(gList *list, unsigned int index);
+int stRemoveItemList(stList *list, unsigned int index);
 
 /**
- * Function: gListGetItem
- * ----------------------
  * Retrieves the item stored in the given list from given index.
  *
  *  @param list:    The list from which node is to be retrieved.
@@ -163,11 +155,9 @@ int gListRemoveItem(gList *list, unsigned int index);
  *                  data before being used.
  *                  May return 'NULL' in that case of invalid index.
  */
-void* gListGetItem(gList *list, unsigned int index);
+void* stGetListItem(stList *list, unsigned int index);
 
 /**
- * Function: gListGetIterator
- * ----------------------
  * Iterator is an object ( a pointer ) which can be used to loop through the list.
  * It is important to interact with iterator using only the library
  * functions.
@@ -177,11 +167,9 @@ void* gListGetItem(gList *list, unsigned int index);
  *  @return:        An iterator.
  *                  May return 'NULL' in that case of empty list.
  */
-gListIterator gListGetIterator(gList *list);
+stListIterator stGetListIterator(stList *list);
 
 /**
- * Function: gListIterate
- * ----------------------
  * This function moves the iterator to the next node.
  *
  *  @param iter:    The iterator to be moved.
@@ -191,11 +179,9 @@ gListIterator gListGetIterator(gList *list);
  *                  (-1) -> Failed
  *                  Check value of st_errno for details.
  */
-int gListIterate(gListIterator iter);
+int stListIteratorNext(stListIterator iter);
 
 /**
- * Function: gListGetIteratorData
- * ----------------------
  * Returns the value stored in the node the iterator is currently visiting.
  *
  *  @param iterator:    The list from which node is to be retrieved.
@@ -205,6 +191,6 @@ int gListIterate(gListIterator iter);
  *                      correctly access it.
  *                      May return 'NULL' in that case of invalid iterator, or empty list.
  */
-void* gListGetIteratorData(gListIterator iterator);
-
+void* stGetListIteratorData(stListIterator iterator);
+/** @} */
 #endif //DATA_STRUCTURE_LIST_H

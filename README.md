@@ -15,9 +15,22 @@ General Purpose, Generic Data Structure library for C.
 - [ ] Graphs
 
 ## Contributing
-
 Please contribute to it and help implement most of the common structures. 
 
-Ensure it's buildable. Write a test for each function you implement.
+The aim is to build a reusable standard datastructure library for different c-based projects. 
 
-Keep it generic. (use `void*`)
+### Please keep in mind
+
+- Create an Issue before starting to implement anything. 
+  
+  This helps me know what you are working on, also we can get some discussion done.
+  
+- Mark an existing issue as `currently working` label.
+
+- This project is adapting [Linux Kernel Coding Style][1]
+- Ensure it's build-able. Write a test for each function you implement.
+
+- Keep it generic. (use `void*`)
+
+[1]: https://www.kernel.org/doc/html/v4.10/process/coding-style.html
+

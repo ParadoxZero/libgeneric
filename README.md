@@ -3,7 +3,8 @@ General Purpose, Generic Data Structure library for C.
 
 ## Implemented Data structures
 * Linked List
-* Stack ( untested )
+* Legacy Stack ( untested )
+* New Stack ( contributed )
 
 ## Checklist left to implement ( not exhaustive )
 

@@ -27,8 +27,10 @@ The aim is to build a reusable standard datastructure library for different c-ba
   
 - Mark an existing issue as `currently working` label.
 
-- There is no official style guide as of now. But please try to keep the code base coherent.
-
+- This project is adapting [Linux Kernel Coding Style][1]
 - Ensure it's build-able. Write a test for each function you implement.
 
 - Keep it generic. (use `void*`)
+
+[1]: https://www.kernel.org/doc/html/v4.10/process/coding-style.html
+

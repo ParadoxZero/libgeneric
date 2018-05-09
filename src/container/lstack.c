@@ -22,59 +22,62 @@
  *   SOFTWARE.
  */
 
-#include <generic/lstack.h>
+#include <data_structure/stack.h>
 
-gLinkedStack *gLinkedStackCreate(size_t size) {
-    gLinkedStack *new_stack = malloc(sizeof(gLinkedStack));
-    if (new_stack == NULL) {
-        gErrorCode = G_ENOMEN;
+stStack* stCreateStack(size_t size){
+    stStack *new_stack = malloc(sizeof(stStack));
+    if(new_stack==NULL){
+        st_errno = ST_ENOMEN;
         return NULL;
     }
-    new_stack->list = gListCreate(size);
-    if (new_stack->list == NULL) {
+    new_stack->list = stCreateList(size);
+    if(new_stack->list==NULL){
         free(new_stack);
-        gErrorCode = G_ENOMEN;
+        st_errno = ST_ENOMEN;
         return NULL;
     }
     new_stack->stack_size = 0;
     return new_stack;
 }
 
-void gLinkedStackDelete(gLinkedStack *stack) {
-    gListDelete(stack->list);
+void stDeleteStack(stStack *stack)
+{
+    stDeleteList(stack->list);
     free(stack);
 }
 
 
-void *gLinkedStackTop(gLinkedStack *stack) {
-    if (stack == NULL) {
-        gErrorCode = G_ENOITM;
+void * stGetStackTop(stStack *stack){
+    if(stack == NULL){
+        st_errno = ST_ENOITM;
         return NULL;
     }
-    if (stack->stack_size == 0) {
-        gErrorCode = G_EBUFUNDR;
+    if(stack->stack_size == 0){
+        st_errno = ST_EBUFUNDR;
         return NULL;
     }
-    return gListGetItem(stack->list, stack->stack_size - 1);
+    return stGetListItem(stack->list, stack->stack_size - 1);
 
 }
 
-int gLinkedStackPop(gLinkedStack *stack) {
-    if (stack == NULL) {
-        gErrorCode = G_ENOITM;
+int stPopStack(stStack *stack)
+{
+    if(stack == NULL){
+        st_errno = ST_ENOITM;
         return -1;
     }
-    if (stack->stack_size == 0) {
-        gErrorCode = G_EBUFUNDR;
+    if(stack->stack_size == 0){
+        st_errno = ST_EBUFUNDR;
         return -1;
     }
-    return gListRemoveItem(stack->list, 0);
+    return stRemoveItemList(stack->list, 0);
 }
 
-int gLinkedStackPush(gLinkedStack *stack, void *value) {
-    if (stack == NULL) {
-        gErrorCode = G_ENOITM;
+int stPushStack(stStack *stack, void *value)
+{
+    if(stack == NULL){
+        st_errno = ST_ENOITM;
         return -1;
     }
-    return gListAddItemAt(stack->list, value, 0);
+    return stAddListItemAt(stack->list, value,0);
 }

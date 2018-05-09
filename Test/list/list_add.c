@@ -23,16 +23,17 @@
  */
 
 #include <stdio.h>
-#include <generic/list.h>
+#include <data_structure/list.h>
 
-int main() {
-    gList *list = gListCreate(sizeof(int));
-    for (int i = 0; i < 10; ++i) {
-        if (gListAddItem(list, &i) == -1) {
-            return gErrorCode;
+int main()
+{
+    stList* list = stCreateList(sizeof(int));
+    for (int i = 0; i <10 ; ++i) {
+        if(stAddListItem(list, &i)==-1){
+            return st_errno;
         }
-        for (unsigned int j = 0; j <= i; ++j) {
-            printf("%d ", *(int *) gListGetItem(list, j));
+        for (int j = 0; j <= i ; ++j) {
+            printf("%d ", *(int*) stGetListItem(list, j));
         }
         printf("\n");
     }

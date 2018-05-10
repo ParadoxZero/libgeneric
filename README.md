@@ -3,20 +3,17 @@
 
 General Purpose, Generic Data Structure library for C.
 
-## Implemented Data structures
-* Linked List
-* Linked List-based Stack ( untested )
-* Vector-based Stack (freestanding)
-* Vector (C equivalence to `std::vector`)
+## Generic Utility Functions
 
-## Generic Functions
+* [swap\_generic](http://www.travor.top/libgeneric/docs/utils_8c.html#a913e9f9e9ce4e4a7d0ff2c02f28c82d0)
 
-* [**swap\_generic**](http://www.travor.top/libgeneric/docs/utils_8c.html#a913e9f9e9ce4e4a7d0ff2c02f28c82d0)
+* [search\_generic](http://www.travor.top/libgeneric/docs/utils_8c.html#ac8817f9cd0580d5b1933381a0e0657e5)
 
-* [**search\_generic**](http://www.travor.top/libgeneric/docs/utils_8c.html#ac8817f9cd0580d5b1933381a0e0657e5)
+## Features
 
-## Checklist left to implement ( not exhaustive )
-
+- [x] Linked List
+- [x] Stack
+- [x] Vector (C equivalence to `std::vector`)
 - [ ] Queue
 - [ ] Binary Trees
 - [ ] Binary Search Trees

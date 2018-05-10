@@ -21,7 +21,11 @@
  *   OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  *   SOFTWARE.
  */
-
+/**
+ * @file	new_stack.h
+ *
+ * @brief	Vector-based implementation of stack
+ */
 #ifndef _DATA_STRUCTURE_STACK_H_
 #define	_DATA_STRUCTURE_STACK_H_
 #include <stddef.h>	// size_t

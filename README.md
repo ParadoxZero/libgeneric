@@ -5,8 +5,9 @@ General Purpose, Generic Data Structure library for C.
 
 ## Implemented Data structures
 * Linked List
-* `LinkedList` based Stack ( untested )
-* `Vector` based Stack
+* Linked List-based Stack ( untested )
+* Vector-based Stack (freestanding)
+* Vector (C equivalence to `std::vector`)
 
 ## Generic Functions
 

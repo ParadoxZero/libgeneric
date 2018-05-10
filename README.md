@@ -1,4 +1,6 @@
 # libgeneric
+[![Build Status](https://travis-ci.org/TravorLZH/libgeneric.svg?branch=master)](https://travis-ci.org/TravorLZH/libgeneric)
+
 General Purpose, Generic Data Structure library for C.
 
 ## Implemented Data structures

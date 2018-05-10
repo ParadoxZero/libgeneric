@@ -7,9 +7,5 @@ before_script:
   - cmake .
 script: make
 after_success:
-  - >-
-    if [[ "$TRAVIS_BRANCH" = "master"]] ; then
-      cd $PROJECT_DIR_ABS
-      source ci/setup-ssh.sh || travis_terminate 1
-      ci/generateDocumentation.sh || travis_terminate 1
-    fi
+  - source ci/setup-ssh.sh || travis_terminate 1
+  - ci/generateDocumentation.sh || travis_terminate 1

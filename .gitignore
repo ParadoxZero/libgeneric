@@ -136,3 +136,6 @@ Makefile
 cmake_install.cmake
 CTestTestfile.cmake
 CMakeFiles/
+
+# Doxygen stuff
+docs/

@@ -7,7 +7,7 @@ declare -r SSH_FILE="$(mktemp -u $HOME/.ssh/travis_temp_ssh_key_XXXX)"
 openssl aes-256-cbc \
 	-K $encrypted_98cebf81b822_key \
 	-iv $encrypted_98cebf81b822_iv \
-	-in "travis_rsa.pub.enc" \
+	-in "ci/travis_rsa.enc" \
 	-out "$SSH_FILE" -d
 # Enable SSH authentication
 chmod 600 "$SSH_FILE" \

@@ -113,7 +113,7 @@ extern void *vector_at(vector_t *vector,size_t index);
 
 /** @brief Resize the vector
  *
- * It only works if new_size*vector_t::elem_sz>vector_t::alloc
+ * Reallocates the elements in the vector
  *
  * @param vector:	Vector to be resized
  * @param new_size:	The new size for the vector

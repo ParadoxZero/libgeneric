@@ -14,7 +14,7 @@ General Purpose, Generic Data Structure library for C.
 - [x] Linked List
 - [x] Stack
 - [x] Vector (C equivalence to `std::vector`)
-- [ ] Queue
+- [x] Queue
 - [ ] Binary Trees
 - [ ] Binary Search Trees
 - [ ] AVL Trees

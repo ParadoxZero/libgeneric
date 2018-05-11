@@ -43,6 +43,7 @@
 #define	VECTOR_DEFAULT_ELEMS	16
 
 /** @brief The structure of vector
+ *
  * Assuming those members are read-only
  */
 typedef struct vector_struct {

@@ -40,15 +40,17 @@
 /** Default size of the stack */
 #define	DEFAULT_STACKSZ	16
 
-/**
- * @brief The data structure of stack
+/** @brief The data structure of stack
  *
  * Assuming the members are invisible to users
  */
 typedef struct stack_struct {
-	void *elems;	/**< The pointer to the elements of the stack */
-	size_t logical;	/**< Logical size of the stack */
-	size_t alloc;	/**< Allocated size of the stack */
+	/** @brief The pointer to the elements of the stack */
+	void *elems;
+	/** @brief Logical size of the stack */
+	size_t logical;
+	/** @brief Allocated size of the stack */
+	size_t alloc;
 } stack_t;
 
 /**
@@ -81,6 +83,7 @@ extern void stack_push(stack_t *stack,void *val,size_t sz);
  *		The value can be overrided by the next push
  */
 extern void *stack_pop(stack_t *stack,size_t sz);
+
 /**
  * @brief Destroy the stack
  *

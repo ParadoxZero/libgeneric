@@ -3,12 +3,6 @@
 
 General Purpose, Generic Data Structure library for C.
 
-## Generic Utility Functions
-
-* [swap\_generic](http://www.travor.top/libgeneric/docs/utils_8c.html#a913e9f9e9ce4e4a7d0ff2c02f28c82d0)
-
-* [search\_generic](http://www.travor.top/libgeneric/docs/utils_8c.html#ac8817f9cd0580d5b1933381a0e0657e5)
-
 ## Features
 
 - [x] Linked List

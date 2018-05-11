@@ -45,11 +45,11 @@
  *
  * Assuming the members are invisible to users
  */
-typedef struct stack_struct{
+typedef struct stack_struct {
 	void *elems;	/**< The pointer to the elements of the stack */
 	size_t logical;	/**< Logical size of the stack */
 	size_t alloc;	/**< Allocated size of the stack */
-}stack_t;
+} stack_t;
 
 /**
  * @brief Create a new stack

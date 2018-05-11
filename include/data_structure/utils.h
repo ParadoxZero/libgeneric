@@ -31,6 +31,44 @@
 #ifndef	DATA_STRUCTURE_UTILS_H
 #define	DATA_STRUCTURE_UTILS_H
 #include <stddef.h>	// size_t
+/** @defgroup utils Generic Utility
+ *
+ * Utility functions for generic operations
+ *
+ * @author Travor Liu
+ *
+ * @{
+ */
+
+/** @brief Swap bytes between two locations
+ *
+ * @param a:	The pointer to the first field
+ * @param b:	The pointer to the second field
+ * @param sz:	The size of the field
+ */
 extern void swap_generic(void *a,void *b,size_t sz);
+
+/** @brief Search matching bytes from a location
+ *
+ * @param key:	The bytes to search
+ * @param base:	The elements to be searched
+ * @param n:	The number of elements in the base
+ * @param elem_sz:	The size of each element
+ *
+ * @return The location where key is found or NULL if not found
+ */
 extern void *search_generic(const void *key,const void *base,size_t n,size_t elem_sz);
+
+/** @brief Reverse the elements in a region
+ *
+ * @param elems:	Pointer to the elements
+ * @param n:		Number of elements
+ * @param elem_sz:	Size of each element
+ *
+ * @return	Pointer to the reversed elements
+ *		Always equal to elems
+ */
+extern void *reverse_generic(void *elems,size_t n,size_t elem_sz);
+
+/** @} */
 #endif

@@ -3,6 +3,8 @@
 
 General Purpose, Generic Data Structure library for C.
 
+This is a fork of Sidhin S Thomas's [libgeneric](https://github.com/TravorLZH/libgeneric) with my own modification, which are not approved by [Sidhin S Thomas](https://github.com/ParadoxZero)
+
 ## Features
 
 - [x] Linked List

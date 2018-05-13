@@ -11,7 +11,7 @@ This is a fork of Sidhin S Thomas's [libgeneric](https://github.com/TravorLZH/li
 - [x] Stack
 - [x] Vector (C equivalence to `std::vector`)
 - [x] Queue
-- [ ] Binary Trees
+- [x] Binary Trees
 - [ ] Binary Search Trees
 - [ ] AVL Trees
 - [ ] Graphs

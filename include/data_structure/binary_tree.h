@@ -28,7 +28,8 @@
  */
 #ifndef	DATA_STRUCTURE_BINARY_TREE
 #define	DATA_STRUCTURE_BINARY_TREE
-/** @defgroup btree Binary Tree
+#include <stddef.h>
+/** @defgroup bnode Binary Tree
  *
  * Binary Tree is a data structure where one node has at most two children
  *
@@ -56,34 +57,50 @@ typedef struct bnode {
 	struct bnode *right;
 } bnode_t;
 
+/** @brief Create a node in binary tree
+ *
+ * @param num:	Value of the new node
+ *
+ * @return	Pointer to the new node
+ */
+extern bnode_t *bnode_new(int num);
+
 /** @brief Add number to a tree
  *
  * If the number is smaller than a node, store it to the left one.
  * If it is greater, store it to the right one.
  * If it is equal, increase the count
+ * This function recursively finds the accurate node
  *
- * @param root:	The root node of the tree
+ * @param node:	The root node of the tree
  * @param num:	Number being added
  *
  * @return	Node where the number is inserted
  */
-extern void btree_add(bnode_t *root,int num);
+extern bnode_t *bnode_add(bnode_t *node,int num);
 
 /** @brief Delete a tree
  *
  * It uses recursive mechanism to delete the sub-node of the tree
  *
- * @param root:	Root node of the tree being removed
+ * @param node:	Root node of the tree being removed
  */
-extern void btree_delete(bnode_t *root);
+extern void bnode_delete(bnode_t *node);
 
 /** @brief Search a number in the tree
  *
- * @param root:	Root node of the tree
+ * @param node:	Root node of the tree
  * @param num:	Number being searched
+ *
+ * @return	Node containing the found number
  */
-extern void btree_search(bnode_t *node,int num);
+extern bnode_t *bnode_search(bnode_t *node,const int num);
 
+/** @brief Print the tree
+ *
+ * @param node:	Root node of the tree
+ */
+extern void bnode_print(bnode_t *node);
 /** @} */
 #endif
 

@@ -3,6 +3,9 @@ project(data_structure)
 
 set(CMAKE_C_STANDARD 99)
 set(CMAKE_BUILD_TYPE Debug)
+set(EXECUTABLE_OUTPUT_PATH ${CMAKE_CURRENT_SOURCE_DIR}/build)
+set(LIBRARY_OUTPUT_PATH ${EXECUTABLE_OUTPUT_PATH})
+set(ARCHIVE_OUTPUT_PATH ${LIBRARY_OUTPUT_PATH})
 
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/include)
 add_subdirectory(src)

@@ -22,8 +22,7 @@
  *   SOFTWARE.
  */
 
-#include <data_structure/binary_tree.h>
-#include <malloc.h>
+#include <data_structure/bst.h>
 #include <assert.h>
 
 bnode_t *bnode_new(int num)
@@ -96,14 +95,4 @@ bnode_t *bnode_search(bnode_t *node,const int num)
 
 }
 
-void bnode_print(bnode_t *node)
-{
-	if(node->left){
-		bnode_print(node->left);
-	}
-	if(node->right){
-		bnode_print(node->right);
-	}
-	printf("%10lu x %10d\n",node->count,node->value);
-}
 

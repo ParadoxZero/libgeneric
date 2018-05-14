@@ -21,8 +21,9 @@
  *   OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  *   SOFTWARE.
  */
-/**
- * @file	queue.h
+
+/*
+ * @file	vqueue.h
  *
  * @brief	Queue wrappers of vector
  */
@@ -30,20 +31,7 @@
 #define	DATA_STRUCTURE_QUEUE
 #include <stddef.h>	// size_t
 #include <data_structure/vector.h>
-/** @defgroup queue Generic Queue
- *
- * Queue is a container that provides FIFO ability to programmers
- *
- * Instead of creating another structure, I simply wrap the vector strucuture
- * The end of the queue will be the start of the vector where the start of queue
- * is the end of the vector
- *
- * @author Travor Liu
- *
- * @see vector
- *
- * @{
- */
+
 
 /** @brief Data structure of a queue
  *
@@ -80,6 +68,6 @@ extern void *queue_pop(queue_t *queue);
  */
 extern void queue_destroy(queue_t *queue);
 
-/** @} */
+
 #endif
 

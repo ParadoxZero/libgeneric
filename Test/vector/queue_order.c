@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include <data_structure/queue.h>
+#include <data_structure/vqueue.h>
 
 struct order{
 	char title[20];

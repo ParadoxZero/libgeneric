@@ -54,7 +54,8 @@ stList * stCreateList(size_t size){
     return new_list;
 }
 
-void stDeleteList(stList *list){
+void stDeleteList(stList *list)
+{
     if(list->head!=NULL){
         node* tmp = list->head;
         while(tmp!=NULL){ // Free Memory allocated to list
@@ -65,7 +66,8 @@ void stDeleteList(stList *list){
     }
     free(list);
 }
-int stAddListItem(stList *list, void *value){
+int stAddListItem(stList *list, void *value)
+{
     if(list->head == NULL){
         node *head = create_node(NULL,value,list->itemSize);
         if(head==NULL){
@@ -88,7 +90,8 @@ int stAddListItem(stList *list, void *value){
     return 0;
 }
 
-int stAddListItemAt(stList *list, void *value, unsigned int index){
+int stAddListItemAt(stList *list, void *value, unsigned int index)
+{
     if(list->listLength < index){
         return -1;
     }
@@ -137,7 +140,8 @@ int stAddListItemAt(stList *list, void *value, unsigned int index){
     }
 }
 
-int stRemoveItemList(stList *list, unsigned int index){
+int stRemoveItemList(stList *list, unsigned int index)
+{
     if(list->listLength < index+1 && index!=stLIST_END){
         st_errno = ST_EBUFUNDR;
         return -1;
@@ -206,7 +210,8 @@ void* stGetListItem(stList *list, unsigned int index){
     return NULL;
 }
 
-stListIterator stGetListIterator(stList *list){
+stListIterator stGetListIterator(stList *list)
+{
     if(list == NULL){
         st_errno = ST_ENOITM;
         return NULL;
@@ -216,7 +221,8 @@ stListIterator stGetListIterator(stList *list){
     return iter;
 }
 
-int stListIteratorNext(stListIterator iter){
+int stListIteratorNext(stListIterator iter)
+{
     if((*iter) == NULL){
         st_errno = ST_EITMEND;
         return 1;

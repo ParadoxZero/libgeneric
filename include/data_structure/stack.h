@@ -33,8 +33,15 @@
 
 #include <data_structure/data_structure.h>
 #include <data_structure/list.h>
+/** @addtogroup stack
+ * @{
+ */
+ /** @defgroup lstack Legacy
+ * The stack implemented by Sidhin S Thomas and remains untested
+ * @{
+ */
 
-/*
+/**
  * This structure represents a stack.
  * It contains all the information regarding the stack.
  */
@@ -43,9 +50,7 @@ typedef struct st_stack {
     unsigned int stack_size;
 } stStack ;
 
-/*
- * Function: stCreateStack
- * ----------------------
+/**
  * Creates a stack, allocates necessary memories and returns the pointer.
  *
  *  @param itemSize:    The size of the items that will be stored within the stack
@@ -56,8 +61,6 @@ typedef struct st_stack {
 stStack* stCreateStack(size_t itemSize);
 
 /*
- * Function: stDeleteStack
- * ----------------------
  * Deletes a previously created stack and free associated memories
  *
  *  @param stack:       The stack to be deleted.
@@ -67,8 +70,6 @@ stStack* stCreateStack(size_t itemSize);
 void stDeleteStack(stStack *stack);
 
 /*
- * Function: stGetStackTop
- * ----------------------
  * Returns the data contained in the top of stack.
  *
  *  @param stack:       The stack whose top is required
@@ -82,8 +83,6 @@ void stDeleteStack(stStack *stack);
 void * stGetStackTop(stStack *stack);
 
 /*
- * Function: stPopStack
- * ----------------------
  * Removes the top element of the stack.
  *
  *  @param stack:       The stack whose top is to be removed.
@@ -95,8 +94,6 @@ void * stGetStackTop(stStack *stack);
 int stPopStack(stStack *stack);
 
 /*
- * Function: stPushStack
- * ----------------------
  * Pushed a data into the stack.
  *
  *  @param stack:       The stack where the data is to be pushed.
@@ -108,4 +105,6 @@ int stPopStack(stStack *stack);
  */
 int stPushStack(stStack *stack, void *item);
 
+/** @} */
+/** @} */
 #endif //DATA_STRUCTURE_STACK_H

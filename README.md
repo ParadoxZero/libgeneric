@@ -1,14 +1,12 @@
 # libgeneric
 General Purpose, Generic Data Structure library for C.
 
-## Implemented Data structures
-* Linked List
-* Stack ( untested )
-
-## Checklist left to implement ( not exhaustive )
-
-- [ ] Queue
-- [ ] Binary Trees
+## Data structures
+- [x] Linked List
+- [x] Stack
+- [x] Vector
+- [x] Queue
+- [x] Binary Trees
 - [ ] Binary Search Trees
 - [ ] AVL Trees
 - [ ] Graphs

@@ -24,7 +24,8 @@
 #include <data_structure/list.h>
 #include <stdio.h>
 
-int main(){
+int main()
+{
     stList* list = stCreateList(sizeof(int));
     for (int i = 0; i <10 ; ++i) {
         if(stAddListItemAt(list, &i,0)==-1){

@@ -46,3 +46,13 @@ void *search_generic(const void *key,const void *base,size_t n,size_t elem_sz)
 	return NULL;
 }
 
+void *reverse_generic(void *elems,size_t n,size_t elem_sz)
+{
+	char *ptr=(char*)elems;
+	int i,j;
+	for(i=0,j=n-1;i<j;i++)
+	{
+		swap_generic(ptr+i*elem_sz,ptr+j*elem_sz,elem_sz);
+	}
+}
+

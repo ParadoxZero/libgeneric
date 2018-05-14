@@ -1,4 +1,4 @@
-#include <data_structure/binary_tree.h>
+#include <data_structure/bst.h>
 #include <stdio.h>
 
 bnode_t *tree;

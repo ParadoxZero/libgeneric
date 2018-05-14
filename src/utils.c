@@ -1,7 +1,7 @@
 /*
  *   MIT License
  *
- *   Copyright (c) 2017-2018 Travor Liu
+ *   Copyright (c) 2018 Travor Liu
  *
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
  *   of this software and associated documentation files (the "Software"), to deal
@@ -54,5 +54,6 @@ void *reverse_generic(void *elems,size_t n,size_t elem_sz)
 	{
 		swap_generic(ptr+i*elem_sz,ptr+j*elem_sz,elem_sz);
 	}
+	return elems;
 }
 

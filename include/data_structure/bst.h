@@ -21,20 +21,18 @@
  *   OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  *   SOFTWARE.
  */
-/**
- * @file	binary_tree.h
+
+/*
+ * @file	bst.h
  *
- * @brief	A tree data structure where one node has at most two children
+ * @brief	A tree data structure where one node has at most two children with left < root < right.
  */
+
 #ifndef	DATA_STRUCTURE_BINARY_TREE
 #define	DATA_STRUCTURE_BINARY_TREE
 #include <stddef.h>
-/** @defgroup bnode Binary Tree
- *
- * Binary Tree is a data structure where one node has at most two children
- *
- * @{
- */
+#include <stdlib.h>
+
 
 /** @brief Binary Tree data structure
  *
@@ -96,11 +94,7 @@ extern void bnode_delete(bnode_t *node);
  */
 extern bnode_t *bnode_search(bnode_t *node,const int num);
 
-/** @brief Print the tree
- *
- * @param node:	Root node of the tree
- */
-extern void bnode_print(bnode_t *node);
-/** @} */
+
+
 #endif
 

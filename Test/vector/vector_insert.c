@@ -3,7 +3,7 @@
 
 vector_t vec;
 
-int insert(size_t pos,int val)
+void insert(size_t pos,int val)
 {
 	vector_insert(&vec,pos,&val);
 }

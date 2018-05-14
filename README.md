@@ -1,30 +1,38 @@
 # libgeneric
+
 General Purpose, Generic Data Structure library for C.
 
-## Implemented Data structures
-* Linked List
-* Legacy Stack ( untested )
-* New Stack ( contributed )
+## Data structures
 
-## Checklist left to implement ( not exhaustive )
-
-- [ ] Queue
+- [x] Linked List
+- [x] Vector
+- [x] Linked Stack
+- [ ] Vector Stack
+- [ ] Linked Queue
+- [x] Vector Queue
 - [ ] Binary Trees
-- [ ] Binary Search Trees
+- [x] Binary Search Trees
 - [ ] AVL Trees
 - [ ] Graphs
 
-## Contributing
-Please contribute to it and help implement most of the common structures. 
+## Algorithms
 
-The aim is to build a reusable standard datastructure library for different c-based projects. 
+- [ ] Quick Sort
+- [ ] Merge Sort
+- [ ] Binary Search
+
+## Contributing
+
+Please contribute to it and help implement most of the common structures.
+
+The aim is to build a reusable standard datastructure library for different c-based projects.
 
 ### Please keep in mind
 
-- Create an Issue before starting to implement anything. 
-  
+- Create an Issue before starting to implement anything.
+
   This helps me know what you are working on, also we can get some discussion done.
-  
+
 - Mark an existing issue as `currently working` label.
 
 - There is no official style guide as of now. But please try to keep the code base coherent.

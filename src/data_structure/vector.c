@@ -25,7 +25,6 @@
 #include <data_structure/vector.h>
 #include <assert.h>
 #include <string.h>
-#include <malloc.h>
 
 void vector_new(vector_t *vector,size_t size)
 {

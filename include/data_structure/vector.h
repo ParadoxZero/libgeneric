@@ -29,6 +29,7 @@
 #ifndef	DATA_STRUCTURE_VECTOR_H
 #define	DATA_STRUCTURE_VECTOR_H
 #include <stddef.h>	// size_t
+#include <stdlib.h>
 
 /** @defgroup vector Generic Vector
  * Generic Vector is a C equivalence to C++'s std::vector

@@ -1,4 +1,4 @@
-#include <data_structure/queue.h>
+#include <data_structure/vqueue.h>
 
 void queue_new(queue_t *queue,size_t size)
 {

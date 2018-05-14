@@ -1,7 +1,7 @@
 /*
  *   MIT License
  *
- *   Copyright (c) 2017-2018 Travor Liu
+ *   Copyright (c) 2018 Travor Liu
  *
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
  *   of this software and associated documentation files (the "Software"), to deal
@@ -21,6 +21,7 @@
  *   OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  *   SOFTWARE.
  */
+
 /*
  * @file    utils.h
  *
@@ -31,14 +32,6 @@
 #ifndef	DATA_STRUCTURE_UTILS_H
 #define	DATA_STRUCTURE_UTILS_H
 #include <stddef.h>	// size_t
-/** @defgroup utils Generic Utility
- *
- * Utility functions for generic operations
- *
- * @author Travor Liu
- *
- * @{
- */
 
 /** @brief Swap bytes between two locations
  *
@@ -70,5 +63,5 @@ extern void *search_generic(const void *key,const void *base,size_t n,size_t ele
  */
 extern void *reverse_generic(void *elems,size_t n,size_t elem_sz);
 
-/** @} */
+
 #endif

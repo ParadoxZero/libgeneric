@@ -135,6 +135,7 @@ int stAddListItemAt(stList *list, void *value, unsigned int index){
             ptr = ptr->next;
         }while (ptr!=NULL);
     }
+    return 0;
 }
 
 int stRemoveItemList(stList *list, unsigned int index){

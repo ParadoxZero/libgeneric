@@ -18,7 +18,7 @@ General Purpose, Generic Data Structure library for C.
 ## Algorithms
 
 - [ ] Quick Sort
-- [x] Merge Sort
+- [ ] Merge Sort
 - [ ] Binary Search
 
 ## Contributing

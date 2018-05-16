@@ -1,0 +1,18 @@
+version: 1.0.{build}
+image: Ubuntu
+init:
+- sh: sudo apt-get install -y cmake build-essential
+build_script:
+- sh: >-
+    mkdir build
+
+    cd build
+
+    cmake ..
+
+    make all
+test_script:
+- sh: >-
+    cd build
+
+    make test

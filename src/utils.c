@@ -2,6 +2,7 @@
  *   MIT License
  *
  *   Copyright (c) 2018 Travor Liu
+ *   Copyright (c) 2018 Sidhin S Thomas
  *
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
  *   of this software and associated documentation files (the "Software"), to deal
@@ -52,4 +53,10 @@ void *gReverse(void *elems, size_t n, size_t elem_sz) {
     }
     return elems;
 }
+
+int gIntCompare(void *a, void *b){
+    return *(int*)a > *(int*)b;
+}
+
+gDataCompare gINT_COMPARE = gIntCompare;
 

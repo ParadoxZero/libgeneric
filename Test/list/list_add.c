@@ -29,7 +29,7 @@ int main() {
     gList *list = gListCreate(sizeof(int));
     for (int i = 0; i < 10; ++i) {
         if (gListAddItem(list, &i) == -1) {
-            return st_errno;
+            return gErrorCode;
         }
         for (unsigned int j = 0; j <= i; ++j) {
             printf("%d ", *(int *) gListGetItem(list, j));

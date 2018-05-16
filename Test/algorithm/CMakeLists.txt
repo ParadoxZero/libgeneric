@@ -1,8 +1,5 @@
-add_executable(mergesort_test mergesort_test.c)
-target_link_libraries(mergesort_test generic)
-add_executable(mergesort_generic mergesort_generic.c)
-target_link_libraries(mergesort_generic generic)
+add_executable(test_mergesort test_mergesort.c)
+target_link_libraries(test_mergesort generic)
 
 enable_testing()
-add_test(mergesort_test ${TEST_ROOT}/mergesort_test)
-add_test(mergesort_generic ${TEST_ROOT}/mergesort_generic)
+add_test(test_mergesort ${TEST_ROOT}/test_mergesort)

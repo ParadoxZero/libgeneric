@@ -55,7 +55,9 @@ void *gReverse(void *elems, size_t n, size_t elem_sz) {
 }
 
 int gIntCompare(void *a, void *b){
-    return *(int*)a > *(int*)b;
+    int a1 = *(int*)a;
+    int b1 = *(int*)b;
+    return a1 > b1;
 }
 
 gDataCompare gINT_COMPARE = gIntCompare;

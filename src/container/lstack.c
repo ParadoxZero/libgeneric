@@ -27,13 +27,13 @@
 gLinkedStack *gLinkedStackCreate(size_t size) {
     gLinkedStack *new_stack = malloc(sizeof(gLinkedStack));
     if (new_stack == NULL) {
-        st_errno = ST_ENOMEN;
+        gErrorCode = G_ENOMEN;
         return NULL;
     }
     new_stack->list = gListCreate(size);
     if (new_stack->list == NULL) {
         free(new_stack);
-        st_errno = ST_ENOMEN;
+        gErrorCode = G_ENOMEN;
         return NULL;
     }
     new_stack->stack_size = 0;
@@ -48,11 +48,11 @@ void gLinkedStackDelete(gLinkedStack *stack) {
 
 void *gLinkedStackTop(gLinkedStack *stack) {
     if (stack == NULL) {
-        st_errno = ST_ENOITM;
+        gErrorCode = G_ENOITM;
         return NULL;
     }
     if (stack->stack_size == 0) {
-        st_errno = ST_EBUFUNDR;
+        gErrorCode = G_EBUFUNDR;
         return NULL;
     }
     return gListGetItem(stack->list, stack->stack_size - 1);
@@ -61,11 +61,11 @@ void *gLinkedStackTop(gLinkedStack *stack) {
 
 int gLinkedStackPop(gLinkedStack *stack) {
     if (stack == NULL) {
-        st_errno = ST_ENOITM;
+        gErrorCode = G_ENOITM;
         return -1;
     }
     if (stack->stack_size == 0) {
-        st_errno = ST_EBUFUNDR;
+        gErrorCode = G_EBUFUNDR;
         return -1;
     }
     return gListRemoveItem(stack->list, 0);
@@ -73,7 +73,7 @@ int gLinkedStackPop(gLinkedStack *stack) {
 
 int gLinkedStackPush(gLinkedStack *stack, void *value) {
     if (stack == NULL) {
-        st_errno = ST_ENOITM;
+        gErrorCode = G_ENOITM;
         return -1;
     }
     return gListAddItemAt(stack->list, value, 0);

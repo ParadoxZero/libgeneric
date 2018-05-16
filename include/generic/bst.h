@@ -2,6 +2,7 @@
  *   MIT License
  *
  *   Copyright (c) 2018 Travor Liu
+ *   Copyright (c) 2018 Sidhin S Thomas
  *
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
  *   of this software and associated documentation files (the "Software"), to deal
@@ -22,7 +23,6 @@
  *   SOFTWARE.
  */
 
- // TODO: Make major changes
 /**
  * @file	bst.h
  *
@@ -35,16 +35,17 @@
 #include <stddef.h>
 #include <stdlib.h>
 
+#include <generic.h>
+#include <generic/utils.h>
+
 
 /** @brief Binary Tree data structure
  *
  * Assuming the members are read-only to users
  */
 typedef struct bnode {
-	/** @brief Count of the same value */
-	size_t count;
-	/** @brief Value of the current node */
-	int value;
+	/** @brief Data of the current node */
+	void* data;
 	/** @brief Left node
 	 *
 	 * Every number in left node is less than the current one
@@ -57,44 +58,60 @@ typedef struct bnode {
 	struct bnode *right;
 } bnode_t;
 
-/** @brief Create a node in binary tree
- *
- * @param num:	Value of the new node
- *
- * @return	Pointer to the new node
- */
-extern bnode_t *bnode_new(int num);
+typedef struct gBST{
+    bnode_t *root;
+    gDataCompare isGreater;
+    size_t elementSize;
+} gBST;
 
-/** @brief Add number to a tree
+/**
+ * Function: gBSTCreate
+ * --------------------
+ * Create a node in binary search tree
  *
- * If the number is smaller than a node, store it to the left one.
- * If it is greater, store it to the right one.
- * If it is equal, increase the count
- * This function recursively finds the accurate node
+ * @param elementSize   The size of data to be stored.
+ * @param comparator    The function to be used to compare the
+ *                      elements
  *
- * @param node:	The root node of the tree
- * @param num:	Number being added
- *
- * @return	Node where the number is inserted
+ * @return	            Pointer to the new BST
+ *                      will return NULL in case of failure
  */
-extern bnode_t *bnode_add(bnode_t *node,int num);
+gBST* gBSTCreate(size_t elementSize, gDataCompare comparator);
 
-/** @brief Delete a tree
+/**
+ * Function: gBSTAdd
+ * -----------------
+ * Add element to the tree
  *
- * It uses recursive mechanism to delete the sub-node of the tree
+ * @param bst   The tree where the item is to be added.
+ * @param item  The item to be added
  *
- * @param node:	Root node of the tree being removed
+ * @return      status code of operation
+ *              (0) if success, error code in case of failure.
  */
-extern void bnode_delete(bnode_t *node);
+int gBSTAdd(gBST *bst, void *item);
 
-/** @brief Search a number in the tree
+/**
+ * Function: gBSTDelete
+ * --------------------
+ * Delete a tree
  *
- * @param node:	Root node of the tree
- * @param num:	Number being searched
+ *
+ * @param bst:	BST that's being deleted.
+ */
+void gBSTDelete(gBST *bst);
+
+/**
+ * Function: gBSTSearch
+ * --------------------
+ * Search an item in the tree
+ *
+ * @param bst       The bst to be searched
+ * @param data      The item to be searched
  *
  * @return	Node containing the found number
  */
-extern bnode_t *bnode_search(bnode_t *node, const int num);
+bnode_t *gBSTSearch(gBST *bst, void *data);
 
 
 

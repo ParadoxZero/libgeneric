@@ -28,14 +28,14 @@
 static node *create_node(node *next, void *data, size_t itemSize) {
     node *new_node = malloc(sizeof(node));
     if (new_node == NULL) {
-        st_errno = ST_ENOMEN;
+        gErrorCode = G_ENOMEN;
         return NULL;
     }
     new_node->next = next;
     new_node->data = malloc(itemSize);
     if (new_node->data == NULL) {
         free(new_node);
-        st_errno = ST_ENOMEN;
+        gErrorCode = G_ENOMEN;
         return NULL;
     }
     memcpy(new_node->data, data, itemSize);
@@ -45,7 +45,7 @@ static node *create_node(node *next, void *data, size_t itemSize) {
 gList *gListCreate(size_t size) {
     gList *new_list = (gList *) malloc(sizeof(gList));
     if (new_list == NULL) {
-        st_errno = ST_ENOMEN;
+        gErrorCode = G_ENOMEN;
         return NULL;
     }
     new_list->head = NULL;
@@ -82,7 +82,7 @@ int gListAddItem(gList *list, void *value) {
     }
     tmp->next = create_node(NULL, value, list->itemSize);
     if (tmp->next == NULL) {
-        st_errno = ST_ENOMEN;
+        gErrorCode = G_ENOMEN;
         return -1;
     }
     list->listLength++;
@@ -122,7 +122,7 @@ int gListAddItemAt(gList *list, void *value, unsigned int index) {
             if (i == index) {
                 node *new_node = create_node(ptr, value, list->itemSize);
                 if (new_node == NULL) {
-                    st_errno = ST_ENOMEN;
+                    gErrorCode = G_ENOMEN;
                     return -1;
                 }
                 old_ptr->next = new_node;
@@ -139,7 +139,7 @@ int gListAddItemAt(gList *list, void *value, unsigned int index) {
 
 int gListRemoveItem(gList *list, unsigned int index) {
     if (list->listLength < index + 1 && index != gLIST_END) {
-        st_errno = ST_EBUFUNDR;
+        gErrorCode = G_EBUFUNDR;
         return -1;
     }
     int i = 1;
@@ -183,13 +183,13 @@ int gListRemoveItem(gList *list, unsigned int index) {
             tmp = tmp->next;
         }
     }
-    st_errno = ST_EINVAL;
+    gErrorCode = G_EINVAL;
     return -1;
 }
 
 void *gListGetItem(gList *list, unsigned int index) {
     if (list->listLength - 1 < index) {
-        st_errno = ST_EBUFUNDR;
+        gErrorCode = G_EBUFUNDR;
         return NULL;
     }
     node *tmp = list->head;
@@ -202,13 +202,13 @@ void *gListGetItem(gList *list, unsigned int index) {
         tmp = tmp->next;
     }
 
-    st_errno = ST_EINVAL;
+    gErrorCode = G_EINVAL;
     return NULL;
 }
 
 gListIterator gListGetIterator(gList *list) {
     if (list == NULL) {
-        st_errno = ST_ENOITM;
+        gErrorCode = G_ENOITM;
         return NULL;
     }
     node **iter = malloc(sizeof(node *));
@@ -218,7 +218,7 @@ gListIterator gListGetIterator(gList *list) {
 
 int gListIterate(gListIterator iter) {
     if ((*iter) == NULL) {
-        st_errno = ST_EITMEND;
+        gErrorCode = G_EITMEND;
         return 1;
     }
     *iter = (*iter)->next;
@@ -227,7 +227,7 @@ int gListIterate(gListIterator iter) {
 
 void *gListGetIteratorData(gListIterator iter) {
     if (*iter == NULL) {
-        st_errno = ST_EITMEND;
+        gErrorCode = G_EITMEND;
         return NULL;
     }
     return (*iter)->data;

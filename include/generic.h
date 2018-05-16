@@ -26,13 +26,14 @@
 #define DATA_STRUCTURE_ST_DATA_STRUCTURE_H
 
 
-#define ST_ENOMEN       12  /* No memory */
-#define ST_EBUFUNDR     10  /* Underflow */
-#define ST_EINVAL       11  /* Invalid Value Given */
-#define ST_ENOITM       6   /* Instance Empty */
-#define ST_EITMEND      9   /* End of Linear Data Structure */
+#define G_ENOMEN        12  /* Memory allocation failed */
+#define G_EBUFUNDR      10  /* Underflow */
+#define G_EINVAL        11  /* Invalid Value Given */
+#define G_ENOITM        6   /* Instance Empty */
+#define G_EITMEND       9   /* End of Linear Data Structure */
+#define G_EINVLD        2   /* Invalid container */
 
-extern int st_errno;
+extern int gErrorCode;
 
 
 #endif //DATA_STRUCTURE_ST_DATA_STRUCTURE_H

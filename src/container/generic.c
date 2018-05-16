@@ -24,4 +24,4 @@
 
 #include <generic.h>
 
-int st_errno = 0;
+int gErrorCode = 0;

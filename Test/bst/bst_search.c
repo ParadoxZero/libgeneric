@@ -1,24 +1,21 @@
 #include <generic/bst.h>
 #include <stdio.h>
 
-bnode_t *tree;
-const int key = 6;
 
 int main(void) {
-    tree = bnode_new(5);
-    bnode_add(tree, 12);
-    bnode_add(tree, 1);
-    bnode_add(tree, 6);
-    bnode_add(tree, 4);
-    bnode_add(tree, 3);
-    bnode_add(tree, 6);
-    bnode_add(tree, 14);
-    bnode_t *found = bnode_search(tree, key);
+    gBST *bst = gBSTCreate(sizeof(int), gINT_COMPARE);
+    int data[] = {12,1,6,4,3,6,14};
+    for (int i=0; i<7; ++i){
+        gBSTAdd(bst,&data[i]);
+    }
+    bnode_t *found = gBSTSearch(bst, &data[3]);
     if (found == NULL) {
-        fprintf(stderr, "%d: Node not found\n", key);
+        fprintf(stderr, "%d: Node not found\n", data[3]);
         return 1;
     }
-    printf("Found %d with count of %lu\n", key, found->count);
+    printf("Found %d\n", data[3]);
+
+    gBSTDelete(bst);
     return 0;
 }
 

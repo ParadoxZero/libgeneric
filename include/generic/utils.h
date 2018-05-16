@@ -2,6 +2,7 @@
  *   MIT License
  *
  *   Copyright (c) 2018 Travor Liu
+ *   Copyright (c) 2018 Sidhin S Thomas
  *
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
  *   of this software and associated documentation files (the "Software"), to deal
@@ -29,8 +30,8 @@
  *
  */
 
-#ifndef	DATA_STRUCTURE_UTILS_H
-#define	DATA_STRUCTURE_UTILS_H
+#ifndef	_GENERIC_UTILS_H_
+#define	_GENERIC_UTILS_H_
 
 #include <stddef.h>	// size_t
 
@@ -42,7 +43,7 @@
  *
  * @return      Nothing.
  */
-extern void gSwap(void *a, void *b, size_t sz);
+void gSwap(void *a, void *b, size_t sz);
 
 /**
  * Function: gSwap
@@ -56,7 +57,7 @@ extern void gSwap(void *a, void *b, size_t sz);
  *
  * @return          The location where key is found or NULL if not found
  */
-extern void *gSearch(const void *key, const void *base, size_t n, size_t elem_sz);
+void *gSearch(const void *key, const void *base, size_t n, size_t elem_sz);
 
 /**
  * Function: gReverse
@@ -70,7 +71,19 @@ extern void *gSearch(const void *key, const void *base, size_t n, size_t elem_sz
  *  @return	        Pointer to the reversed elements
  *		            Always equal to elems
  */
-extern void *gReverse(void *elems, size_t n, size_t elem_sz);
+void *gReverse(void *elems, size_t n, size_t elem_sz);
 
+/**
+ * This type is used to implement comparision function to be used
+ * by algorithms and container when it needs to compare two data.
+ *
+ * Expected behaviour:
+ *      Should return (1) if a > b
+ *      else (0)
+ */
+typedef int(*gDataCompare)(void *a, void *b) ;
 
-#endif
+extern gDataCompare gINT_COMPARE;
+// Implement more default functions for ease.
+
+#endif //_GENERIC_UTILS_H_

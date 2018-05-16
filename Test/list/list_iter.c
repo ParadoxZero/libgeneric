@@ -23,20 +23,21 @@
  */
 
 #include <stdio.h>
-#include <generic/list.h>
+#include <data_structure/list.h>
 
-int main() {
-    gList *list = gListCreate(sizeof(int));
-    for (int i = 0; i < 10; ++i) {
-        if (gListAddItem(list, &i) == -1) {
-            return gErrorCode;
+int main()
+{
+    stList* list = stCreateList(sizeof(int));
+    for (int i = 0; i <10 ; ++i) {
+        if(stAddListItem(list, &i)==-1){
+            return st_errno;
         }
     }
-    gListIterator iter = gListGetIterator(list);
-    printf("%d\n", *(int *) gListGetIteratorData(iter));
-    while (*(iter) != NULL) {
-        printf("%d\n", *(int *) gListGetIteratorData(iter));
-        if (gListIterate(iter))
+    stListIterator iter = stGetListIterator(list);
+    printf("%d\n", *(int*) stGetListIteratorData(iter));
+    while(*(iter)!=NULL){
+        printf("%d\n", *(int*) stGetListIteratorData(iter));
+        if(stListIteratorNext(iter))
             break;
     }
     return 0;

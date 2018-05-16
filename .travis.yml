@@ -1,0 +1,11 @@
+language: c
+sudo: required
+dist: trusty
+compiler: gcc
+before_script:
+  - sudo apt-get install doxygen
+  - cmake .
+script: make
+after_success:
+  - source ci/setup-ssh.sh || travis_terminate 1
+  - ci/generateDocumentation.sh || travis_terminate 1

@@ -1,7 +1,7 @@
 /*
  *   MIT License
  *
- *   Copyright (c) 2017-2018 Travor Liu
+ *   Copyright (c) 2018 Travor Liu
  *
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
  *   of this software and associated documentation files (the "Software"), to deal
@@ -21,54 +21,50 @@
  *   OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  *   SOFTWARE.
  */
-/*
- * @file    utils.h
+/**
+ * @file	merge_sort.h
  *
- * @brief   Utility functions for data structure operations
- *
- *
+ * @brief	A sorting algorithm created by John von Neumann in 1945
  */
-#ifndef	DATA_STRUCTURE_UTILS_H
-#define	DATA_STRUCTURE_UTILS_H
+#ifndef	ALGORITHM_MERGE_SORT_H
+#define	ALGORITHM_MERGE_SORT_H
 #include <stddef.h>	// size_t
-/** @defgroup utils Generic Utility
+#include <algorithm/algorithm.h>
+/** @defgroup mergesort Merge Sort
  *
- * Utility functions for generic operations
+ * Merge sort is a sorting algorithm originally created by John von Neumann
+ * in 1945.
  *
- * @author Travor Liu
+ * @see https://en.wikipedia.org/wiki/Merge_sort
  *
  * @{
  */
 
-/** @brief Swap bytes between two locations
+/** @brief Merge Sort for integers
  *
- * @param a:	The pointer to the first field
- * @param b:	The pointer to the second field
- * @param sz:	The size of the field
+ * @param arr:	Array being sorted
+ * @param n:	Length of the array
+ *
+ * @return	Pointer to the sorted array
+ *		Always equal to the input on success
+ *		NULL on failure
  */
-extern void swap_generic(void *a,void *b,size_t sz);
+extern int *merge_sort(int *arr,size_t n);
 
-/** @brief Search matching bytes from a location
+/** @brief Merge Sort for generic types
  *
- * @param key:	The bytes to search
- * @param base:	The elements to be searched
- * @param n:	The number of elements in the base
- * @param elem_sz:	The size of each element
+ * @param arr:	Array being sorted
+ * @param n:	Length of the array
+ * @param elem_sz:	Size of each element in the array
+ * @param cmpfunc:	Function for comparing the elements
  *
- * @return The location where key is found or NULL if not found
+ * @return	Pointer to the sorted array
+ *		Always equal to the input on success
+ *		NULL on failure
+ *
+ * @see	merge_sort
  */
-extern void *search_generic(const void *key,const void *base,size_t n,size_t elem_sz);
-
-/** @brief Reverse the elements in a region
- *
- * @param elems:	Pointer to the elements
- * @param n:		Number of elements
- * @param elem_sz:	Size of each element
- *
- * @return	Pointer to the reversed elements
- *		Always equal to elems
- */
-extern void *reverse_generic(void *elems,size_t n,size_t elem_sz);
-
+extern void *merge_sort_generic(void *arr,size_t n,size_t elem_sz,cmpfunc_t cmpfunc);
 /** @} */
 #endif
+

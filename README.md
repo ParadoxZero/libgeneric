@@ -1,9 +1,5 @@
 # libgeneric
 
-| Build Status | License |
-|--------------|---------|
-|[![Build status](https://ci.appveyor.com/api/projects/status/e0aa56efs3xkbxob/branch/master?svg=true)](https://ci.appveyor.com/project/ParadoxZero/libgeneric/branch/master)| [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) |
-
 General Purpose, Generic Data Structure library for C.
 
 ## Data structures
@@ -22,7 +18,7 @@ General Purpose, Generic Data Structure library for C.
 ## Algorithms
 
 - [ ] Quick Sort
-- [ ] Merge Sort
+- [x] Merge Sort
 - [ ] Binary Search
 
 ## Contributing
@@ -31,4 +27,16 @@ Please contribute to it and help implement most of the common structures.
 
 The aim is to build a reusable standard datastructure library for different c-based projects.
 
-Read the [contributing guidelines](https://github.com/ParadoxZero/libgeneric/wiki/Contribution-guidelines) before sending a pull request.
+### Please keep in mind
+
+- Create an Issue before starting to implement anything.
+
+  This helps me know what you are working on, also we can get some discussion done.
+
+- Mark an existing issue as `currently working` label.
+
+- There is no official style guide as of now. But please try to keep the code base coherent.
+
+- Ensure it's build-able. Write a test for each function you implement.
+
+- Keep it generic. (use `void*`)

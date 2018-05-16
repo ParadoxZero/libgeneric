@@ -1,7 +1,7 @@
 /*
  *   MIT License
  *
- *   Copyright (c) 2017-2018 Sidhin S Thomas
+ *   Copyright (c) 2018 Travor Liu
  *
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
  *   of this software and associated documentation files (the "Software"), to deal
@@ -21,38 +21,19 @@
  *   OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  *   SOFTWARE.
  */
-
-#include <stdio.h>
-#include <data_structure/list.h>
-
-int main()
-{
-    stList* list = stCreateList(sizeof(int));
-    for (int i = 0; i <10 ; ++i) {
-        if(stAddListItem(list, &i)==-1){
-            return st_errno;
-        }
-        for (int j = 0; j <= i ; ++j) {
-            printf("%d ", *(int*) stGetListItem(list, j));
-        }
-        printf("\n");
-    }
-    for (int i = 9; i >=0 ; --i) {
-
-        if(stRemoveItemList(list, i)==-1){
-            return st_errno;
-        }
-        stListIterator iter = stGetListIterator(list);
-        while(stGetListIteratorData(iter)!=NULL){
-            printf("%d ", *(int*) stGetListIteratorData(iter));
-            fflush(stdout);
-            stListIteratorNext(iter);
-        }
-        printf("\n");
-    }
-    stListIterator iter = stGetListIterator(list);
-    while(*iter!=NULL){
-        printf("%d ", *(int*) stGetListIteratorData(iter));
-    }
-    return 0;
-}
+/**
+ * @file	algorithm.h
+ *
+ * @brief	Generic declarations for algorithms
+ */
+#ifndef	ALGORITHM_H
+#define	ALGORITHM_H
+/** @brief Pointer to a comparison function
+ *
+ * @param a:	1st value being compared
+ * @param b:	2nd value being compared
+ *
+ * @return	0 if equal, positive if a>b, negative if a<b
+ */
+typedef int (*cmpfunc_t)(void *a,void *b);
+#endif

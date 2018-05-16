@@ -1,8 +1,7 @@
 /*
  *   MIT License
  *
- *   Copyright (c) 2018 Travor Liu
- *   Copyright (c) 2018 Sidhin S Thomas
+ *   Copyright (c) 2017-2018 Travor Liu
  *
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
  *   of this software and associated documentation files (the "Software"), to deal
@@ -23,42 +22,37 @@
  *   SOFTWARE.
  */
 
-#include <generic/utils.h>
-#include <string.h>    // memcpy and NULL
+#include <data_structure/utils.h>
+#include <string.h>	// memcpy and NULL
 
-void gSwap(void *a, void *b, size_t sz) {
-    char x[sz];
-    memcpy(x, a, sz);    // Save A
-    memcpy(a, b, sz);    // Copy B to A
-    memcpy(b, x, sz);    // Copy saved A to B
+void swap_generic(void *a,void *b,size_t sz)
+{
+	char x[sz];
+	memcpy(x,a,sz);	// Save A
+	memcpy(a,b,sz);	// Copy B to A
+	memcpy(b,x,sz);	// Copy saved A to B
 }
 
-void *gSearch(const void *key, const void *base, size_t n, size_t elem_sz) {
-    char *x = (char *) base;
-    int i;
-    for (i = 0; i < n; i++) {
-        if (!memcmp(key, x, elem_sz)) {
-            return x;
-        }
-        x =  x + elem_sz;
-    }
-    return NULL;
+void *search_generic(const void *key,const void *base,size_t n,size_t elem_sz)
+{
+	char *x=(char*)base;
+	int i;
+	for(i=0;i<n;i++){
+		if(!memcmp(key,x,elem_sz)){
+			return x;
+		}
+		x=(char*)x+elem_sz;
+	}
+	return NULL;
 }
 
-void *gReverse(void *elems, size_t n, size_t elem_sz) {
-    char *ptr = (char *) elems;
-    size_t i, j;
-    for (i = 0, j = n - 1; i < j; i++) {
-        gSwap(ptr + i * elem_sz, ptr + j * elem_sz, elem_sz);
-    }
-    return elems;
+void *reverse_generic(void *elems,size_t n,size_t elem_sz)
+{
+	char *ptr=(char*)elems;
+	int i,j;
+	for(i=0,j=n-1;i<j;i++)
+	{
+		swap_generic(ptr+i*elem_sz,ptr+j*elem_sz,elem_sz);
+	}
 }
-
-int gIntCompare(void *a, void *b){
-    int a1 = *(int*)a;
-    int b1 = *(int*)b;
-    return a1 > b1;
-}
-
-gDataCompare gINT_COMPARE = gIntCompare;
 

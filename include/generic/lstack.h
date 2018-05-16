@@ -21,31 +21,36 @@
  *   OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  *   SOFTWARE.
  */
-
-/**
+/*
  * @file    stack.h
  *
- * @brief   Stack is a LIFO data structure implemented as an adapter on top of @ref List.h
+ * @brief   Stack is a LIFO data structure implemented on top of @ref List.h
+ *
  *
  */
 #ifndef DATA_STRUCTURE_STACK_H
 #define DATA_STRUCTURE_STACK_H
 
-#include <generic.h>
-#include <generic/list.h>
+#include <data_structure/data_structure.h>
+#include <data_structure/list.h>
+/** @addtogroup stack
+ * @{
+ */
+ /** @defgroup lstack Legacy
+ * The stack implemented by Sidhin S Thomas and remains untested
+ * @{
+ */
 
 /**
  * This structure represents a stack.
  * It contains all the information regarding the stack.
  */
-typedef struct gLinkedStack {
-    gList *list;
+typedef struct st_stack {
+    stList *list;
     unsigned int stack_size;
-} gLinkedStack ;
+} stStack ;
 
 /**
- * Function: gLinkedStackCreate
- * ----------------------
  * Creates a stack, allocates necessary memories and returns the pointer.
  *
  *  @param itemSize:    The size of the items that will be stored within the stack
@@ -53,22 +58,18 @@ typedef struct gLinkedStack {
  *  @return:            A pointer to the stack that was created.
  *                      May return 'NULL' in case of failure to allocate necessary memory.
  */
-gLinkedStack* gLinkedStackCreate(size_t itemSize);
+stStack* stCreateStack(size_t itemSize);
 
-/**
- * Function: gLinkedStackDelete
- * ----------------------
+/*
  * Deletes a previously created stack and free associated memories
  *
  *  @param stack:       The stack to be deleted.
  *
  *  @return:            Nothing.
  */
-void gLinkedStackDelete(gLinkedStack *stack);
+void stDeleteStack(stStack *stack);
 
-/**
- * Function: gLinkedStackTop
- * ----------------------
+/*
  * Returns the data contained in the top of stack.
  *
  *  @param stack:       The stack whose top is required
@@ -79,11 +80,9 @@ void gLinkedStackDelete(gLinkedStack *stack);
  *                      May return 'NULL' in case of failure.
  *                      Check st_errno for reason.
  */
-void * gLinkedStackTop(gLinkedStack *stack);
+void * stGetStackTop(stStack *stack);
 
-/**
- * Function: gLinkedStackPop
- * ----------------------
+/*
  * Removes the top element of the stack.
  *
  *  @param stack:       The stack whose top is to be removed.
@@ -92,11 +91,9 @@ void * gLinkedStackTop(gLinkedStack *stack);
  *                      ( 0) -> Success
  *                      (-1) -> Failed
  */
-int gLinkedStackPop(gLinkedStack *stack);
+int stPopStack(stStack *stack);
 
-/**
- * Function: gLinkedStackPush
- * ----------------------
+/*
  * Pushed a data into the stack.
  *
  *  @param stack:       The stack where the data is to be pushed.
@@ -106,6 +103,8 @@ int gLinkedStackPop(gLinkedStack *stack);
  *                      ( 0) -> Success
  *                      (-1) -> Failed
  */
-int gLinkedStackPush(gLinkedStack *stack, void *item);
+int stPushStack(stStack *stack, void *item);
 
+/** @} */
+/** @} */
 #endif //DATA_STRUCTURE_STACK_H

@@ -1,0 +1,265 @@
+Start testing: May 16 16:56 DST
+----------------------------------------------------------
+1/12 Testing: list_add
+1/12 Test: list_add
+Command: "/usr/src/libgeneric/list_add"
+Directory: /usr/src/libgeneric/Test/list
+"list_add" start time: May 16 16:56 DST
+Output:
+----------------------------------------------------------
+0 
+0 1 
+0 1 2 
+0 1 2 3 
+0 1 2 3 4 
+0 1 2 3 4 5 
+0 1 2 3 4 5 6 
+0 1 2 3 4 5 6 7 
+0 1 2 3 4 5 6 7 8 
+0 1 2 3 4 5 6 7 8 9 
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"list_add" end time: May 16 16:56 DST
+"list_add" time elapsed: 00:00:00
+----------------------------------------------------------
+
+2/12 Testing: list_add_at
+2/12 Test: list_add_at
+Command: "/usr/src/libgeneric/list_add_at"
+Directory: /usr/src/libgeneric/Test/list
+"list_add_at" start time: May 16 16:56 DST
+Output:
+----------------------------------------------------------
+0 
+1 0 
+2 1 0 
+3 2 1 0 
+4 3 2 1 0 
+5 4 3 2 1 0 
+6 5 4 3 2 1 0 
+7 6 5 4 3 2 1 0 
+8 7 6 5 4 3 2 1 0 
+9 8 7 6 5 4 3 2 1 0 
+<end of output>
+Test time =   0.02 sec
+----------------------------------------------------------
+Test Passed.
+"list_add_at" end time: May 16 16:56 DST
+"list_add_at" time elapsed: 00:00:00
+----------------------------------------------------------
+
+3/12 Testing: list_iter
+3/12 Test: list_iter
+Command: "/usr/src/libgeneric/list_iter"
+Directory: /usr/src/libgeneric/Test/list
+"list_iter" start time: May 16 16:56 DST
+Output:
+----------------------------------------------------------
+0
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"list_iter" end time: May 16 16:56 DST
+"list_iter" time elapsed: 00:00:00
+----------------------------------------------------------
+
+4/12 Testing: list_remove
+4/12 Test: list_remove
+Command: "/usr/src/libgeneric/list_remove"
+Directory: /usr/src/libgeneric/Test/list
+"list_remove" start time: May 16 16:56 DST
+Output:
+----------------------------------------------------------
+0 
+0 1 
+0 1 2 
+0 1 2 3 
+0 1 2 3 4 
+0 1 2 3 4 5 
+0 1 2 3 4 5 6 
+0 1 2 3 4 5 6 7 
+0 1 2 3 4 5 6 7 8 
+0 1 2 3 4 5 6 7 8 9 
+0 1 2 3 4 5 6 7 8 
+0 1 2 3 4 5 6 7 
+0 1 2 3 4 5 6 
+0 1 2 3 4 5 
+0 1 2 3 4 
+0 1 2 3 
+0 1 2 
+0 1 
+0 
+
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"list_remove" end time: May 16 16:56 DST
+"list_remove" time elapsed: 00:00:00
+----------------------------------------------------------
+
+5/12 Testing: list_get
+5/12 Test: list_get
+Command: "/usr/src/libgeneric/list_get"
+Directory: /usr/src/libgeneric/Test/list
+"list_get" start time: May 16 16:56 DST
+Output:
+----------------------------------------------------------
+0123456789
+<end of output>
+Test time =   0.02 sec
+----------------------------------------------------------
+Test Passed.
+"list_get" end time: May 16 16:56 DST
+"list_get" time elapsed: 00:00:00
+----------------------------------------------------------
+
+6/12 Testing: swap_ints
+6/12 Test: swap_ints
+Command: "/usr/src/libgeneric/swap_ints"
+Directory: /usr/src/libgeneric/Test/utils
+"swap_ints" start time: May 16 16:56 DST
+Output:
+----------------------------------------------------------
+Before swap:
+a=3, b=5
+After swap:
+a=5, b=3
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"swap_ints" end time: May 16 16:56 DST
+"swap_ints" time elapsed: 00:00:00
+----------------------------------------------------------
+
+7/12 Testing: search_ints
+7/12 Test: search_ints
+Command: "/usr/src/libgeneric/search_ints"
+Directory: /usr/src/libgeneric/Test/utils
+"search_ints" start time: May 16 16:56 DST
+Output:
+----------------------------------------------------------
+stuff[]: 1, 4, 5, 3, 2, 6, 9, 10
+Found 5 at index 2
+<end of output>
+Test time =   0.02 sec
+----------------------------------------------------------
+Test Passed.
+"search_ints" end time: May 16 16:56 DST
+"search_ints" time elapsed: 00:00:00
+----------------------------------------------------------
+
+8/12 Testing: vector_insert
+8/12 Test: vector_insert
+Command: "/usr/src/libgeneric/vector_insert"
+Directory: /usr/src/libgeneric/Test/vector
+"vector_insert" start time: May 16 16:56 DST
+Output:
+----------------------------------------------------------
+Popped value: 5
+Popped value: 6
+Popped value: 7
+Popped value: 8
+<end of output>
+Test time =   0.02 sec
+----------------------------------------------------------
+Test Passed.
+"vector_insert" end time: May 16 16:56 DST
+"vector_insert" time elapsed: 00:00:00
+----------------------------------------------------------
+
+9/12 Testing: queue_order
+9/12 Test: queue_order
+Command: "/usr/src/libgeneric/queue_order"
+Directory: /usr/src/libgeneric/Test/vector
+"queue_order" start time: May 16 16:56 DST
+Output:
+----------------------------------------------------------
+New order - Wake up: Get off the bed and brush you teeth
+New order - Breakfast: Eat eggs and drink milk
+New order - Coding: Open your laptop and code
+Doing "Get off the bed and brush you teeth"...
+Completed "Wake up"
+Doing "Eat eggs and drink milk"...
+Completed "Breakfast"
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"queue_order" end time: May 16 16:56 DST
+"queue_order" time elapsed: 00:00:00
+----------------------------------------------------------
+
+10/12 Testing: bst_search
+10/12 Test: bst_search
+Command: "/usr/src/libgeneric/bst_search"
+Directory: /usr/src/libgeneric/Test/bst
+"bst_search" start time: May 16 16:56 DST
+Output:
+----------------------------------------------------------
+4: Node not found
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Failed.
+"bst_search" end time: May 16 16:56 DST
+"bst_search" time elapsed: 00:00:00
+----------------------------------------------------------
+
+11/12 Testing: mergesort_test
+11/12 Test: mergesort_test
+Command: "/usr/src/libgeneric/Test/algorithm/mergesort_test"
+Directory: /usr/src/libgeneric/Test/algorithm
+"mergesort_test" start time: May 16 16:56 DST
+Output:
+----------------------------------------------------------
+Before sorted: 5, 3, 6, 1, 7, 9, 4
+After sorted: 1, 3, 4, 5, 6, 7, 9
+<end of output>
+Test time =   0.02 sec
+----------------------------------------------------------
+Test Passed.
+"mergesort_test" end time: May 16 16:56 DST
+"mergesort_test" time elapsed: 00:00:00
+----------------------------------------------------------
+
+12/12 Testing: mergesort_generic
+12/12 Test: mergesort_generic
+Command: "/usr/src/libgeneric/Test/algorithm/mergesort_generic"
+Directory: /usr/src/libgeneric/Test/algorithm
+"mergesort_generic" start time: May 16 16:56 DST
+Output:
+----------------------------------------------------------
+Before sorted:
+Harry is 13 years old
+John is 17 years old
+Tom is 14 years old
+Tim is 16 years old
+After sorted:
+Harry is 13 years old
+Tom is 14 years old
+Tim is 16 years old
+John is 17 years old
+<end of output>
+Test time =   0.02 sec
+----------------------------------------------------------
+Test Passed.
+"mergesort_generic" end time: May 16 16:56 DST
+"mergesort_generic" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: May 16 16:56 DST

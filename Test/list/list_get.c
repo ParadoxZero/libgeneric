@@ -21,18 +21,19 @@
  *   OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  *   SOFTWARE.
  */
-#include <generic/list.h>
+#include <data_structure/list.h>
 #include <stdio.h>
 
-int main() {
-    gList *list = gListCreate(sizeof(int));
-    for (int i = 0; i < 10; ++i) {
-        if (gListAddItem(list, &i) == -1) {
-            return gErrorCode;
+int main()
+{
+    stList* list = stCreateList(sizeof(int));
+    for (int i = 0; i <10 ; ++i) {
+        if(stAddListItem(list, &i)==-1){
+            return st_errno;
         }
     }
-    for (unsigned int i = 0; i < 10; ++i) {
-        printf("%d", *((int *) gListGetItem(list, i)));
+    for(unsigned int i=0; i< 10; ++i){
+        printf("%d",*((int*)stGetListItem(list,i)));
     }
     return 0;
 }

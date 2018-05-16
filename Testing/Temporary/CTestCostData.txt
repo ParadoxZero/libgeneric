@@ -1,0 +1,14 @@
+list_add 2 0
+list_add_at 2 0.00781059
+list_iter 2 0
+list_remove 2 0.00100398
+list_get 2 0.00783849
+swap_ints 2 0
+search_ints 2 0.00779045
+vector_insert 2 0.00781453
+queue_order 2 0
+bst_search 0 0
+mergesort_test 1 0.015615
+mergesort_generic 1 0.0171309
+---
+bst_search

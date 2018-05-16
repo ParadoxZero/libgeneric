@@ -16,8 +16,8 @@ target_link_libraries(list_get generic)
 
 enable_testing()
 
-add_test(list_add ${TEST_ROOT}/list_add)
-add_test(list_add_at ${TEST_ROOT}/list_add_at)
-add_test(list_iter ${TEST_ROOT}/list_iter)
-add_test(list_remove ${TEST_ROOT}/list_remove)
-add_test(list_get ${TEST_ROOT}/list_get)
+add_test(list_add list_add)
+add_test(list_add_at list_add_at)
+add_test(list_iter list_iter)
+add_test(list_remove list_remove)
+add_test(list_get list_get)

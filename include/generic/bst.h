@@ -22,7 +22,8 @@
  *   SOFTWARE.
  */
 
-/*
+ // TODO: Make major changes
+/**
  * @file	bst.h
  *
  * @brief	A tree data structure where one node has at most two children with left < root < right.
@@ -30,6 +31,7 @@
 
 #ifndef	DATA_STRUCTURE_BINARY_TREE
 #define	DATA_STRUCTURE_BINARY_TREE
+
 #include <stddef.h>
 #include <stdlib.h>
 
@@ -92,7 +94,7 @@ extern void bnode_delete(bnode_t *node);
  *
  * @return	Node containing the found number
  */
-extern bnode_t *bnode_search(bnode_t *node,const int num);
+extern bnode_t *bnode_search(bnode_t *node, const int num);
 
 
 

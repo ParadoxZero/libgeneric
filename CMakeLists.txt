@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.5)
-project(data_structure)
+project(libgeneric)
 
 set(CMAKE_C_STANDARD 99)
 set(CMAKE_BUILD_TYPE Debug)

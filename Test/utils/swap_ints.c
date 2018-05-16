@@ -23,16 +23,15 @@
  */
 
 #include <stdio.h>
-#include <data_structure/utils.h>
+#include <generic/utils.h>
 
-int main(void)
-{
-	int a=3;
-	int b=5;
-	printf("Before swap:\n");
-	printf("a=%d, b=%d\n",a,b);
-	swap_generic(&a,&b,sizeof(int));
-	printf("After swap:\n");
-	printf("a=%d, b=%d\n",a,b);
-	return 0;
+int main(void) {
+    int a = 3;
+    int b = 5;
+    printf("Before swap:\n");
+    printf("a=%d, b=%d\n", a, b);
+    gSwap(&a, &b, sizeof(int));
+    printf("After swap:\n");
+    printf("a=%d, b=%d\n", a, b);
+    return 0;
 }

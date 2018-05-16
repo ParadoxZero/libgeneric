@@ -22,52 +22,55 @@
  *   SOFTWARE.
  */
 
-/*
- * @file	vqueue.h
+/**
+ * @file    utils.h
  *
- * @brief	Queue wrappers of vector
+ * @brief   Utility functions.
+ *
  */
-#ifndef	DATA_STRUCTURE_QUEUE
-#define	DATA_STRUCTURE_QUEUE
+
+#ifndef	DATA_STRUCTURE_UTILS_H
+#define	DATA_STRUCTURE_UTILS_H
+
 #include <stddef.h>	// size_t
-#include <data_structure/vector.h>
 
-
-/** @brief Data structure of a queue
+/** @brief Swap bytes between two locations
  *
- * The members are identical to vector, so I typedef it
+ * @param a	    The pointer to the first field
+ * @param b	    The pointer to the second field
+ * @param sz	The size of the field
+ *
+ * @return      Nothing.
  */
-typedef vector_t queue_t;
+extern void gSwap(void *a, void *b, size_t sz);
 
-/** @brief Initialize the queue
+/**
+ * Function: gSwap
+ * ---------------
+ * Search matching bytes from a location
  *
- * @param queue:	Queue being initialized
- * @param size:		Size of each element
+ * @param key	    The bytes to search
+ * @param base	    The elements to be searched
+ * @param n 	    The number of elements in the base
+ * @param elem_sz	The size of each element
+ *
+ * @return          The location where key is found or NULL if not found
  */
-extern void queue_new(queue_t *queue,size_t size);
+extern void *gSearch(const void *key, const void *base, size_t n, size_t elem_sz);
 
-/** @brief Push to the end of the queue
+/**
+ * Function: gReverse
+ * ------------------
+ * Reverse the elements in a contigous region e.g. Array/Vector
  *
- * @param queue:	Queue to be pushed
- * @param val:	Pointer to the pushing value
+ *  @param elems	Pointer to the elements
+ *  @param n		Number of elements
+ *  @param elem_sz	Size of each element
+ *
+ *  @return	        Pointer to the reversed elements
+ *		            Always equal to elems
  */
-extern void queue_push(queue_t *queue,void *val);
-
-/** @brief Remove the first element
- *
- * @param queue:	Queue holding the elements
- *
- * @return	Pointer to the popped value
- *		It may be overrided by the next push
- */
-extern void *queue_pop(queue_t *queue);
-
-/** @brief Destroy the queue
- *
- * @param queue:	The queue being destroyed
- */
-extern void queue_destroy(queue_t *queue);
+extern void *gReverse(void *elems, size_t n, size_t elem_sz);
 
 
 #endif
-

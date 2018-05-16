@@ -31,7 +31,7 @@ int main() {
         if (gListAddItem(list, &i) == -1) {
             return st_errno;
         }
-        for (uint16_t j = 0; j <= i; ++j) {
+        for (unsigned int j = 0; j <= i; ++j) {
             printf("%d ", *(int *) gListGetItem(list, j));
         }
         printf("\n");

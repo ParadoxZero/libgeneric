@@ -86,5 +86,55 @@ int *merge_sort(int *arr,size_t n)
 	do_split(arr,0,n-1);
 	return arr;
 }
+
+static void do_merge_generic(char *arr,size_t beg,size_t mid,size_t end,size_t elem_sz,cmpfunc_t cmpfunc)
+{
+	char tmp[elem_sz*(end-beg+1)];
+	size_t i=beg,j=mid+1,k=0;
+	int ret=0;
+	while(i<=mid&&j<=end){
+		ret=cmpfunc(arr+i*elem_sz,arr+j*elem_sz);
+		if(ret<0){
+			memcpy(tmp+k*elem_sz,arr+i*elem_sz,elem_sz);
+			k++;
+			i++;
+		}else{
+			memcpy(tmp+k*elem_sz,arr+j*elem_sz,elem_sz);
+			k++;
+			j++;
+		}
+	}
+	while(i<=mid){
+		memcpy(tmp+k*elem_sz,arr+i*elem_sz,elem_sz);
+		k++;
+		i++;
+	}
+	while(j<=end){
+		memcpy(tmp+k*elem_sz,arr+j*elem_sz,elem_sz);
+		k++;
+		j++;
+	}
+	memcpy(arr+beg*elem_sz,tmp,sizeof(tmp));
+}
+
+static void do_split_generic(void *arr,size_t beg,size_t end,size_t elem_sz,cmpfunc_t cmpfunc)
+{
+	if(end-beg<=1){
+		return;
+	}
+	size_t mid=(beg+end)/2;
+	do_split_generic((char*)arr,beg,mid,elem_sz,cmpfunc);
+	do_split_generic((char*)arr,mid+1,end,elem_sz,cmpfunc);
+	do_merge_generic((char*)arr,beg,mid,end,elem_sz,cmpfunc);
+}
+
+void *merge_sort_generic(void *arr,size_t n,size_t elem_sz,cmpfunc_t cmpfunc)
+{
+	assert(cmpfunc!=NULL);
+	assert(elem_sz>0);
+	assert(n>1);
+	do_split_generic(arr,0,n-1,elem_sz,cmpfunc);
+	return arr;
+}
 /** @} */
 

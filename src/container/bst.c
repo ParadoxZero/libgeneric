@@ -51,8 +51,10 @@ static bnode_t* createNode(void *item, size_t itemSize);
  * @param root          The bst root
  * @param node          Node to be added
  * @param isGreater     The function that will compare the values of nodes of bst
+ *
+ * @return              Pointer to the root of bst
  */
-static void addNode(bnode_t* root, bnode_t *node, gDataCompare isGreater);
+static bnode_t* addNode(bnode_t* root, bnode_t *node, gDataCompare isGreater);
 
 /**
  * Function: clearTree
@@ -109,7 +111,7 @@ int gBSTAdd(gBST *bst, void *item) {
         }
         return 0;
     }
-    addNode(bst->root, node, bst->isGreater);
+    bst->root = addNode(bst->root, node, bst->isGreater);
     return 0;
 }
 
@@ -157,13 +159,13 @@ static bnode_t* createNode(void *item, size_t itemSize){
     return node;
 }
 
-static void addNode(bnode_t* root, bnode_t *node, gDataCompare isGreater){
-    if (isGreater(root,node)){
+static bnode_t* addNode(bnode_t* root, bnode_t *node, gDataCompare isGreater){
+    if (!isGreater(root->data,node->data)){
         if(root->right == NULL) {
-            root->right = NULL;
+            root->right = node;
         }
         else {
-            addNode(root->right, node, isGreater);
+            root->right = addNode(root->right, node, isGreater);
         }
     }
     else {
@@ -171,9 +173,10 @@ static void addNode(bnode_t* root, bnode_t *node, gDataCompare isGreater){
             root->left = node;
         }
         else {
-            addNode(root->left, node, isGreater);
+            root->left = addNode(root->left, node, isGreater);
         }
     }
+    return root;
 }
 
 static void clearTree(bnode_t *node){
@@ -190,7 +193,7 @@ static bnode_t* searchTree(gBST *bst, bnode_t *current_root, void *data){
     if (memcmp(current_root->data, data, bst->elementSize)==0){
         return current_root;
     }
-    else if (bst->isGreater(current_root, data)){
+    else if (!bst->isGreater(current_root->data, data)){
         return searchTree(bst, current_root->right, data);
     }
     else {

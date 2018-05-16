@@ -1,5 +1,9 @@
 # libgeneric
 
+| Build Status | License |
+|--------------|---------|
+|[![Build status](https://ci.appveyor.com/api/projects/status/e0aa56efs3xkbxob/branch/master?svg=true)](https://ci.appveyor.com/project/ParadoxZero/libgeneric/branch/master)| [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) |
+
 General Purpose, Generic Data Structure library for C.
 
 ## Data structures

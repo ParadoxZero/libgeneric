@@ -29,33 +29,42 @@
 #ifndef	ALGORITHM_MERGE_SORT_H
 #define	ALGORITHM_MERGE_SORT_H
 #include <stddef.h>	// size_t
-/** @defgroup sort Merge Sort
+#include <algorithm/algorithm.h>
+/** @defgroup mergesort Merge Sort
  *
  * Merge sort is a sorting algorithm originally created by John von Neumann
  * in 1945.
  *
- * There are two implementations for Merge Sort algorithm:
- * 1. Top-down: Recursively splits the list into sublist until sublist size
- * is 1, then merges those sublists to produce a sorted list
- * 2. Bottom-up: Treats the list as an array of n sublists of size 1, and iteratively
- * merges sub-lists back and forth between two buffers
- *
- * @see en.wikipedia.org/wiki/Merge_sort
+ * @see https://en.wikipedia.org/wiki/Merge_sort
  *
  * @{
  */
 
-/** @brief Merge Sort using Top-down implementation
+/** @brief Merge Sort for integers
  *
  * @param arr:	Array being sorted
  * @param n:	Length of the array
  *
- * @return	pointer to the sorted array
+ * @return	Pointer to the sorted array
  *		Always equal to the input on success
  *		NULL on failure
  */
-extern int *topdown_merge_sort(int *arr,size_t n);
+extern int *merge_sort(int *arr,size_t n);
 
+/** @brief Merge Sort for generic types
+ *
+ * @param arr:	Array being sorted
+ * @param n:	Length of the array
+ * @param elem_sz:	Size of each element in the array
+ * @param cmpfunc:	Function for comparing the elements
+ *
+ * @return	Pointer to the sorted array
+ *		Always equal to the input on success
+ *		NULL on failure
+ *
+ * @see	merge_sort
+ */
+extern void *merge_sort_generic(void *arr,size_t n,size_t elem_sz,cmpfunc_t cmpfunc);
 /** @} */
 #endif
 

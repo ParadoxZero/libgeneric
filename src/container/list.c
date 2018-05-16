@@ -1,7 +1,7 @@
 /*
  *   MIT License
  *
- *   Copyright (c) 2017-2018 Sidhin S Thomas
+ *   Copyright (c) 2017-2018 Sidhin S Thomas <sidhin.thomas@gmail.com>
  *
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
  *   of this software and associated documentation files (the "Software"), to deal
@@ -22,29 +22,29 @@
  *   SOFTWARE.
  */
 
-#include <data_structure/list.h>
+#include <generic/list.h>
 
 
-static node * create_node(node* next, void* data, size_t itemSize){
-    node * new_node = malloc(sizeof(node));
-    if(new_node == NULL){
+static node *create_node(node *next, void *data, size_t itemSize) {
+    node *new_node = malloc(sizeof(node));
+    if (new_node == NULL) {
         st_errno = ST_ENOMEN;
         return NULL;
     }
     new_node->next = next;
     new_node->data = malloc(itemSize);
-    if(new_node->data==NULL){
+    if (new_node->data == NULL) {
         free(new_node);
         st_errno = ST_ENOMEN;
         return NULL;
     }
-    memcpy(new_node->data,data,itemSize);
+    memcpy(new_node->data, data, itemSize);
     return new_node;
 }
 
-stList * stCreateList(size_t size){
-    stList* new_list = (stList*) malloc(sizeof(stList));
-    if (new_list == NULL){
+gList *gListCreate(size_t size) {
+    gList *new_list = (gList *) malloc(sizeof(gList));
+    if (new_list == NULL) {
         st_errno = ST_ENOMEN;
         return NULL;
     }
@@ -54,21 +54,22 @@ stList * stCreateList(size_t size){
     return new_list;
 }
 
-void stDeleteList(stList *list){
-    if(list->head!=NULL){
-        node* tmp = list->head;
-        while(tmp!=NULL){ // Free Memory allocated to list
-            node* old_ptr = tmp->next;
+void gListDelete(gList *list) {
+    if (list->head != NULL) {
+        node *tmp = list->head;
+        while (tmp != NULL) { // Free Memory allocated to list
+            node *old_ptr = tmp->next;
             free(tmp);
-            tmp=old_ptr;
+            tmp = old_ptr;
         }
     }
     free(list);
 }
-int stAddListItem(stList *list, void *value){
-    if(list->head == NULL){
-        node *head = create_node(NULL,value,list->itemSize);
-        if(head==NULL){
+
+int gListAddItem(gList *list, void *value) {
+    if (list->head == NULL) {
+        node *head = create_node(NULL, value, list->itemSize);
+        if (head == NULL) {
             return -1;
         }
         list->head = head;
@@ -76,11 +77,11 @@ int stAddListItem(stList *list, void *value){
         return 0;
     }
     node *tmp = list->head;
-    while(tmp->next != NULL){
+    while (tmp->next != NULL) {
         tmp = tmp->next;
     }
-    tmp->next = create_node(NULL,value,list->itemSize);
-    if(tmp->next == NULL){
+    tmp->next = create_node(NULL, value, list->itemSize);
+    if (tmp->next == NULL) {
         st_errno = ST_ENOMEN;
         return -1;
     }
@@ -88,23 +89,22 @@ int stAddListItem(stList *list, void *value){
     return 0;
 }
 
-int stAddListItemAt(stList *list, void *value, unsigned int index){
-    if(list->listLength < index){
+int gListAddItemAt(gList *list, void *value, unsigned int index) {
+    if (list->listLength < index) {
         return -1;
     }
-    if(index==0){
-        if(list->head == NULL ){ // For Empty list
-            list->head = create_node(NULL,value,list->itemSize);
-            if(list->head==NULL){
+    if (index == 0) {
+        if (list->head == NULL) { // For Empty list
+            list->head = create_node(NULL, value, list->itemSize);
+            if (list->head == NULL) {
                 return -1;
             }
             list->listLength++;
             return 0;
-        }
-        else{
-            node* tmp = list->head;
-            list->head = create_node(tmp,value,list->itemSize);
-            if(list->head == NULL){
+        } else {
+            node *tmp = list->head;
+            list->head = create_node(tmp, value, list->itemSize);
+            if (list->head == NULL) {
                 list->head = tmp;
                 return -1;
             }
@@ -112,16 +112,15 @@ int stAddListItemAt(stList *list, void *value, unsigned int index){
             return 0;
         }
     }
-    if(list->head==NULL){ // List empty and Index not 0. Then Error
+    if (list->head == NULL) { // List empty and Index not 0. Then Error
         return -1;
-    }
-    else {
+    } else {
         int i = 0;
         node *ptr = list->head;
         node *old_ptr = ptr;
-         do{
+        do {
             if (i == index) {
-                node* new_node = create_node(ptr,value,list->itemSize);
+                node *new_node = create_node(ptr, value, list->itemSize);
                 if (new_node == NULL) {
                     st_errno = ST_ENOMEN;
                     return -1;
@@ -133,28 +132,28 @@ int stAddListItemAt(stList *list, void *value, unsigned int index){
             i++;
             old_ptr = ptr;
             ptr = ptr->next;
-        }while (ptr!=NULL);
+        } while (ptr != NULL);
     }
     return 0;
 }
 
-int stRemoveItemList(stList *list, unsigned int index){
-    if(list->listLength < index+1 && index!=stLIST_END){
+int gListRemoveItem(gList *list, unsigned int index) {
+    if (list->listLength < index + 1 && index != gLIST_END) {
         st_errno = ST_EBUFUNDR;
         return -1;
     }
     int i = 1;
-    node* tmp = list->head;
-    if(index == stLIST_END){    // Asked to remove last item
+    node *tmp = list->head;
+    if (index == gLIST_END) {    // Asked to remove last item
         if (tmp == NULL)
-            return  -1;
-        if (tmp->next == NULL){ // only 1 item in list
+            return -1;
+        if (tmp->next == NULL) { // only 1 item in list
             free(tmp);
             list->head = NULL;
             list->listLength = 0;
             return 0;
         }
-        node* old_ptr = tmp;
+        node *old_ptr = tmp;
         while (tmp->next != NULL) { // Loop to last node.
             old_ptr = tmp;
             i++;
@@ -164,8 +163,8 @@ int stRemoveItemList(stList *list, unsigned int index){
         free(tmp);
         list->listLength--;
         return 0;
-    }else {                     // Removing Item at index
-        if(index == 0){
+    } else {                     // Removing Item at index
+        if (index == 0) {
             node *nxt = tmp->next;
             free(tmp);
             list->head = nxt;
@@ -188,27 +187,27 @@ int stRemoveItemList(stList *list, unsigned int index){
     return -1;
 }
 
-void* stGetListItem(stList *list, unsigned int index){
-    if(list->listLength-1 < index){
+void *gListGetItem(gList *list, unsigned int index) {
+    if (list->listLength - 1 < index) {
         st_errno = ST_EBUFUNDR;
         return NULL;
     }
-    node* tmp = list->head;
+    node *tmp = list->head;
     int i = 0;
-    while(tmp!=NULL){
-        if(i==index){
+    while (tmp != NULL) {
+        if (i == index) {
             return tmp->data;
         }
         i++;
         tmp = tmp->next;
     }
 
-    st_errno=ST_EINVAL;
+    st_errno = ST_EINVAL;
     return NULL;
 }
 
-stListIterator stGetListIterator(stList *list){
-    if(list == NULL){
+gListIterator gListGetIterator(gList *list) {
+    if (list == NULL) {
         st_errno = ST_ENOITM;
         return NULL;
     }
@@ -217,8 +216,8 @@ stListIterator stGetListIterator(stList *list){
     return iter;
 }
 
-int stListIteratorNext(stListIterator iter){
-    if((*iter) == NULL){
+int gListIterate(gListIterator iter) {
+    if ((*iter) == NULL) {
         st_errno = ST_EITMEND;
         return 1;
     }
@@ -226,8 +225,8 @@ int stListIteratorNext(stListIterator iter){
     return 0;
 }
 
-void* stGetListIteratorData(stListIterator iter){
-    if(*iter == NULL){
+void *gListGetIteratorData(gListIterator iter) {
+    if (*iter == NULL) {
         st_errno = ST_EITMEND;
         return NULL;
     }

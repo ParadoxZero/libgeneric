@@ -22,16 +22,16 @@
  *   SOFTWARE.
  */
 
-#include <data_structure/stack.h>
+#include <generic/lstack.h>
 
-stStack* stCreateStack(size_t size){
-    stStack *new_stack = malloc(sizeof(stStack));
-    if(new_stack==NULL){
+gLinkedStack *gLinkedStackCreate(size_t size) {
+    gLinkedStack *new_stack = malloc(sizeof(gLinkedStack));
+    if (new_stack == NULL) {
         st_errno = ST_ENOMEN;
         return NULL;
     }
-    new_stack->list = stCreateList(size);
-    if(new_stack->list==NULL){
+    new_stack->list = gListCreate(size);
+    if (new_stack->list == NULL) {
         free(new_stack);
         st_errno = ST_ENOMEN;
         return NULL;
@@ -40,41 +40,41 @@ stStack* stCreateStack(size_t size){
     return new_stack;
 }
 
-void stDeleteStack(stStack *stack){
-    stDeleteList(stack->list);
+void gLinkedStackDelete(gLinkedStack *stack) {
+    gListDelete(stack->list);
     free(stack);
 }
 
 
-void * stGetStackTop(stStack *stack){
-    if(stack == NULL){
+void *gLinkedStackTop(gLinkedStack *stack) {
+    if (stack == NULL) {
         st_errno = ST_ENOITM;
         return NULL;
     }
-    if(stack->stack_size == 0){
+    if (stack->stack_size == 0) {
         st_errno = ST_EBUFUNDR;
         return NULL;
     }
-    return stGetListItem(stack->list, stack->stack_size - 1);
+    return gListGetItem(stack->list, stack->stack_size - 1);
 
 }
 
-int stPopStack(stStack *stack){
-    if(stack == NULL){
+int gLinkedStackPop(gLinkedStack *stack) {
+    if (stack == NULL) {
         st_errno = ST_ENOITM;
         return -1;
     }
-    if(stack->stack_size == 0){
+    if (stack->stack_size == 0) {
         st_errno = ST_EBUFUNDR;
         return -1;
     }
-    return stRemoveItemList(stack->list, 0);
+    return gListRemoveItem(stack->list, 0);
 }
 
-int stPushStack(stStack *stack, void *value){
-    if(stack == NULL){
+int gLinkedStackPush(gLinkedStack *stack, void *value) {
+    if (stack == NULL) {
         st_errno = ST_ENOITM;
         return -1;
     }
-    return stAddListItemAt(stack->list, value,0);
+    return gListAddItemAt(stack->list, value, 0);
 }

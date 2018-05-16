@@ -22,38 +22,34 @@
  *   SOFTWARE.
  */
 
-#include <data_structure/utils.h>
-#include <string.h>	// memcpy and NULL
+#include <generic/utils.h>
+#include <string.h>    // memcpy and NULL
 
-void swap_generic(void *a,void *b,size_t sz)
-{
-	char x[sz];
-	memcpy(x,a,sz);	// Save A
-	memcpy(a,b,sz);	// Copy B to A
-	memcpy(b,x,sz);	// Copy saved A to B
+void gSwap(void *a, void *b, size_t sz) {
+    char x[sz];
+    memcpy(x, a, sz);    // Save A
+    memcpy(a, b, sz);    // Copy B to A
+    memcpy(b, x, sz);    // Copy saved A to B
 }
 
-void *search_generic(const void *key,const void *base,size_t n,size_t elem_sz)
-{
-	char *x=(char*)base;
-	int i;
-	for(i=0;i<n;i++){
-		if(!memcmp(key,x,elem_sz)){
-			return x;
-		}
-		x=(char*)x+elem_sz;
-	}
-	return NULL;
+void *gSearch(const void *key, const void *base, size_t n, size_t elem_sz) {
+    char *x = (char *) base;
+    int i;
+    for (i = 0; i < n; i++) {
+        if (!memcmp(key, x, elem_sz)) {
+            return x;
+        }
+        x =  x + elem_sz;
+    }
+    return NULL;
 }
 
-void *reverse_generic(void *elems,size_t n,size_t elem_sz)
-{
-	char *ptr=(char*)elems;
-	int i,j;
-	for(i=0,j=n-1;i<j;i++)
-	{
-		swap_generic(ptr+i*elem_sz,ptr+j*elem_sz,elem_sz);
-	}
-	return elems;
+void *gReverse(void *elems, size_t n, size_t elem_sz) {
+    char *ptr = (char *) elems;
+    size_t i, j;
+    for (i = 0, j = n - 1; i < j; i++) {
+        gSwap(ptr + i * elem_sz, ptr + j * elem_sz, elem_sz);
+    }
+    return elems;
 }
 

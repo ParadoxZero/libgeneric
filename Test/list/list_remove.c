@@ -23,35 +23,35 @@
  */
 
 #include <stdio.h>
-#include <data_structure/list.h>
+#include <generic/list.h>
 
-int main(){
-    stList* list = stCreateList(sizeof(int));
-    for (int i = 0; i <10 ; ++i) {
-        if(stAddListItem(list, &i)==-1){
+int main() {
+    gList *list = gListCreate(sizeof(int));
+    for (int i = 0; i < 10; ++i) {
+        if (gListAddItem(list, &i) == -1) {
             return st_errno;
         }
-        for (int j = 0; j <= i ; ++j) {
-            printf("%d ", *(int*) stGetListItem(list, j));
+        for (uint16_t j = 0; j <= i; ++j) {
+            printf("%d ", *(int *) gListGetItem(list, j));
         }
         printf("\n");
     }
-    for (int i = 9; i >=0 ; --i) {
+    for (uint16_t i = 9; i >= 0; --i) {
 
-        if(stRemoveItemList(list, i)==-1){
+        if (gListRemoveItem(list, i) == -1) {
             return st_errno;
         }
-        stListIterator iter = stGetListIterator(list);
-        while(stGetListIteratorData(iter)!=NULL){
-            printf("%d ", *(int*) stGetListIteratorData(iter));
+        gListIterator iter = gListGetIterator(list);
+        while (gListGetIteratorData(iter) != NULL) {
+            printf("%d ", *(int *) gListGetIteratorData(iter));
             fflush(stdout);
-            stListIteratorNext(iter);
+            gListIterate(iter);
         }
         printf("\n");
     }
-    stListIterator iter = stGetListIterator(list);
-    while(*iter!=NULL){
-        printf("%d ", *(int*) stGetListIteratorData(iter));
+    gListIterator iter = gListGetIterator(list);
+    while (*iter != NULL) {
+        printf("%d ", *(int *) gListGetIteratorData(iter));
     }
     return 0;
 }

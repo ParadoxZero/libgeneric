@@ -49,7 +49,7 @@
  *		Always equal to the input on success
  *		NULL on failure
  */
-extern int *merge_sort(int *arr,size_t n);
+extern int *mergeSort(int *arr,size_t n);
 
 /** @brief Merge Sort for generic types
  *
@@ -64,7 +64,7 @@ extern int *merge_sort(int *arr,size_t n);
  *
  * @see	merge_sort
  */
-extern void *merge_sort_generic(void *arr,size_t n,size_t elem_sz,cmpfunc_t cmpfunc);
+extern void *gMergeSort(void *arr,size_t n,size_t elem_sz,cmpfunc_t cmpfunc);
 /** @} */
 #endif
 

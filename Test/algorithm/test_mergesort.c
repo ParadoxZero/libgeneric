@@ -32,7 +32,7 @@ int main(void)
 {
 	printf("Before sorted:\n");
 	print_people(people,sizeof(people)/sizeof(struct person));
-	merge_sort_generic(people,sizeof(people)/sizeof(struct person),sizeof(struct person),compare_person);
+	gMergeSort(people,sizeof(people)/sizeof(struct person),sizeof(struct person),compare_person);
 	printf("After sorted:\n");
 	print_people(people,sizeof(people)/sizeof(struct person));
 	return 0;

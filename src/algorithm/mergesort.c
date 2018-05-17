@@ -80,7 +80,7 @@ static void do_split(int *arr,size_t beg,size_t end)
 	do_merge(arr,beg,mid,end);
 }
 
-int *merge_sort(int *arr,size_t n)
+int *mergeSort(int *arr,size_t n)
 {
 	assert(n>1);
 	do_split(arr,0,n-1);
@@ -128,7 +128,7 @@ static void do_split_generic(void *arr,size_t beg,size_t end,size_t elem_sz,cmpf
 	do_merge_generic((char*)arr,beg,mid,end,elem_sz,cmpfunc);
 }
 
-void *merge_sort_generic(void *arr,size_t n,size_t elem_sz,cmpfunc_t cmpfunc)
+void *gMergeSort(void *arr,size_t n,size_t elem_sz,cmpfunc_t cmpfunc)
 {
 	assert(cmpfunc!=NULL);
 	assert(elem_sz>0);

@@ -28,12 +28,7 @@
  */
 #ifndef	ALGORITHM_H
 #define	ALGORITHM_H
-/** @brief Pointer to a comparison function
- *
- * @param a:	1st value being compared
- * @param b:	2nd value being compared
- *
- * @return	0 if equal, positive if a>b, negative if a<b
- */
-typedef int (*cmpfunc_t)(void *a,void *b);
+#include <generic.h>
+/* Merge Sort */
+#include <algorithm/merge_sort.h>
 #endif

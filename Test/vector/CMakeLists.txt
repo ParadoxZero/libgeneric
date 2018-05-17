@@ -8,5 +8,5 @@ target_link_libraries(queue_order generic)
 
 enable_testing()
 
-add_test(vector_insert ${TEST_ROOT}/vector_insert)
-add_test(queue_order ${TEST_ROOT}/queue_order)
+add_test(vector_insert vector_insert)
+add_test(queue_order queue_order)

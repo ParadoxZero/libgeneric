@@ -22,7 +22,7 @@
  *   SOFTWARE.
  */
 /**
- * @file	merge_sort.h
+ * @file	mergesort.h
  *
  * @brief	A sorting algorithm created by John von Neumann in 1945
  */

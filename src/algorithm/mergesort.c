@@ -22,7 +22,7 @@
  *   SOFTWARE.
  */
 
-#include <algorithm/merge_sort.h>
+#include <algorithm/mergesort.h>
 #include <string.h>
 #include <assert.h>
 /** @addtogroup mergesort

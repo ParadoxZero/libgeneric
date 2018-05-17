@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include <algorithm/merge_sort.h>
+#include <algorithm/mergesort.h>
 
 struct person{
 	char name[32];

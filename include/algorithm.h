@@ -30,5 +30,5 @@
 #define	ALGORITHM_H
 #include <generic.h>
 /* Merge Sort */
-#include <algorithm/merge_sort.h>
+#include <algorithm/mergesort.h>
 #endif

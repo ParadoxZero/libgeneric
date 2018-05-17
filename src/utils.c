@@ -33,11 +33,11 @@ void gSwap(void *a, void *b, size_t sz) {
     memcpy(b, x, sz);    // Copy saved A to B
 }
 
-void *gSearch(const void *key, const void *base, size_t n, size_t elem_sz) {
+void *gSearch(const void *key, const void *base, size_t n, size_t elem_sz, cmpfunc_t cmpfunc) {
     char *x = (char *) base;
     int i;
     for (i = 0; i < n; i++) {
-        if (!memcmp(key, x, elem_sz)) {
+        if (!cmpfunc((void*)key, x)) {
             return x;
         }
         x =  x + elem_sz;

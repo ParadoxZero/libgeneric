@@ -25,6 +25,15 @@
 #ifndef DATA_STRUCTURE_ST_DATA_STRUCTURE_H
 #define DATA_STRUCTURE_ST_DATA_STRUCTURE_H
 
+/** @brief Pointer to a comparison function
+ *
+ * @param a:	1st value being compared
+ * @param b:	2nd value being compared
+ *
+ * @return	0 if equal, positive if a>b, negative if a<b
+ */
+typedef int (*cmpfunc_t)(void *a,void *b);
+
 
 #define G_ENOMEN        12  /* Memory allocation failed */
 #define G_EBUFUNDR      10  /* Underflow */

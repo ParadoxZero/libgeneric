@@ -1,7 +1,7 @@
 /*
  *   MIT License
  *
- *   Copyright (c) 2017 Sidhin S Thomas
+ *   Copyright (c) 2018 Travor Liu
  *
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
  *   of this software and associated documentation files (the "Software"), to deal
@@ -21,28 +21,50 @@
  *   OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  *   SOFTWARE.
  */
-
-#ifndef DATA_STRUCTURE_ST_DATA_STRUCTURE_H
-#define DATA_STRUCTURE_ST_DATA_STRUCTURE_H
-
-/** @brief Pointer to a comparison function
+/**
+ * @file	mergesort.h
  *
- * @param a:	1st value being compared
- * @param b:	2nd value being compared
- *
- * @return	0 if equal, positive if a>b, negative if a<b
+ * @brief	A sorting algorithm created by John von Neumann in 1945
  */
-typedef int (*cmpfunc_t)(void *a,void *b);
+#ifndef	ALGORITHM_MERGE_SORT_H
+#define	ALGORITHM_MERGE_SORT_H
+#include <stddef.h>	// size_t
+#include <algorithm.h>
+/** @defgroup mergesort Merge Sort
+ *
+ * Merge sort is a sorting algorithm originally created by John von Neumann
+ * in 1945.
+ *
+ * @see https://en.wikipedia.org/wiki/Merge_sort
+ *
+ * @{
+ */
 
+/** @brief Merge Sort for integers
+ *
+ * @param arr:	Array being sorted
+ * @param n:	Length of the array
+ *
+ * @return	Pointer to the sorted array
+ *		Always equal to the input on success
+ *		NULL on failure
+ */
+extern int *mergeSort(int *arr,size_t n);
 
-#define G_ENOMEN        12  /* Memory allocation failed */
-#define G_EBUFUNDR      10  /* Underflow */
-#define G_EINVAL        11  /* Invalid Value Given */
-#define G_ENOITM        6   /* Instance Empty */
-#define G_EITMEND       9   /* End of Linear Data Structure */
-#define G_EINVLD        2   /* Invalid container */
+/** @brief Merge Sort for generic types
+ *
+ * @param arr:	Array being sorted
+ * @param n:	Length of the array
+ * @param elem_sz:	Size of each element in the array
+ * @param cmpfunc:	Function for comparing the elements
+ *
+ * @return	Pointer to the sorted array
+ *		Always equal to the input on success
+ *		NULL on failure
+ *
+ * @see	merge_sort
+ */
+extern void *gMergeSort(void *arr,size_t n,size_t elem_sz,cmpfunc_t cmpfunc);
+/** @} */
+#endif
 
-extern int gErrorCode;
-
-
-#endif //DATA_STRUCTURE_ST_DATA_STRUCTURE_H

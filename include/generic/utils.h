@@ -34,6 +34,7 @@
 #define	_GENERIC_UTILS_H_
 
 #include <stddef.h>	// size_t
+#include <generic.h>
 
 /** @brief Swap bytes between two locations
  *
@@ -46,7 +47,7 @@
 void gSwap(void *a, void *b, size_t sz);
 
 /**
- * Function: gSwap
+ * Function: gSearch
  * ---------------
  * Search matching bytes from a location
  *
@@ -54,10 +55,11 @@ void gSwap(void *a, void *b, size_t sz);
  * @param base	    The elements to be searched
  * @param n 	    The number of elements in the base
  * @param elem_sz	The size of each element
+ * @param cmpfunc	Custom compare function
  *
  * @return          The location where key is found or NULL if not found
  */
-void *gSearch(const void *key, const void *base, size_t n, size_t elem_sz);
+void *gSearch(const void *key, const void *base, size_t n, size_t elem_sz, cmpfunc_t cmpfunc);
 
 /**
  * Function: gReverse

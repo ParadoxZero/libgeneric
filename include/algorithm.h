@@ -1,7 +1,7 @@
 /*
  *   MIT License
  *
- *   Copyright (c) 2017 Sidhin S Thomas
+ *   Copyright (c) 2018 Travor Liu
  *
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
  *   of this software and associated documentation files (the "Software"), to deal
@@ -21,28 +21,14 @@
  *   OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  *   SOFTWARE.
  */
-
-#ifndef DATA_STRUCTURE_ST_DATA_STRUCTURE_H
-#define DATA_STRUCTURE_ST_DATA_STRUCTURE_H
-
-/** @brief Pointer to a comparison function
+/**
+ * @file	algorithm.h
  *
- * @param a:	1st value being compared
- * @param b:	2nd value being compared
- *
- * @return	0 if equal, positive if a>b, negative if a<b
+ * @brief	Generic declarations for algorithms
  */
-typedef int (*cmpfunc_t)(void *a,void *b);
-
-
-#define G_ENOMEN        12  /* Memory allocation failed */
-#define G_EBUFUNDR      10  /* Underflow */
-#define G_EINVAL        11  /* Invalid Value Given */
-#define G_ENOITM        6   /* Instance Empty */
-#define G_EITMEND       9   /* End of Linear Data Structure */
-#define G_EINVLD        2   /* Invalid container */
-
-extern int gErrorCode;
-
-
-#endif //DATA_STRUCTURE_ST_DATA_STRUCTURE_H
+#ifndef	ALGORITHM_H
+#define	ALGORITHM_H
+#include <generic.h>
+/* Merge Sort */
+#include <algorithm/mergesort.h>
+#endif

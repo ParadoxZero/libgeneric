@@ -31,57 +31,7 @@
 #define	DATA_STRUCTURE_QUEUE
 
 #include <stddef.h>	// size_t
+#define	ENABLE_QUEUE
 #include <generic/vector.h>
-
-
-/** @brief Data structure of a queue
- *
- * The members are identical to vector
- */
-typedef gVector gVQueue;
-
-/**
- * Function: gVQueueCreate
- * -----------------------
- * Initialize the queue
- *
- * @param queue 	Queue being initialized
- * @param size 		Size of each element
- *
- */
-void gVQueueCreate(gVQueue *queue, size_t size);
-
-/**
- * Function: gVQueueInsert
- * ---------------------
- * Push to the end of the queue
- *
- * @param queue     Queue to be pushed
- * @param val       Pointer to the pushing value
- *
- */
-void gVQueueInsert(gVQueue *queue, void *val);
-
-/**
- * Function: gVQueueRemove
- * Remove the first element
- *
- * @param queue:	Queue holding the elements
- *
- * @return	Pointer to the popped value
- *		It may be overrided by the next push
- */
-void *gVQueueRemove(gVQueue *queue);
-
-/**
- * Function: gVQueueDestroy
- * ------------------------
- * Destroy the queue
- *
- * @param queue     The queue being destroyed
- */
-void gVQueueDestroy(gVQueue *queue);
-
-
 #endif
 

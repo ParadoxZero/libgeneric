@@ -10,10 +10,8 @@ General Purpose, Generic Data Structure library for C.
 
 - [x] Linked List
 - [x] Vector
-- [x] Linked Stack
-- [ ] Vector Stack
-- [ ] Linked Queue
-- [x] Vector Queue
+- [x] Stack
+- [x] Queue
 - [ ] Binary Trees
 - [x] Binary Search Trees
 - [ ] AVL Trees
@@ -22,7 +20,7 @@ General Purpose, Generic Data Structure library for C.
 ## Algorithms
 
 - [ ] Quick Sort
-- [ ] Merge Sort
+- [x] Merge Sort
 - [ ] Binary Search
 
 ## Contributing

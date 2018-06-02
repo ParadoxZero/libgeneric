@@ -93,9 +93,9 @@ void gVectorDestroy(gVector *vector);
 void gVectorPushBack(gVector *vector, void *value);
 
 /**
- * Function: gPopBackVector
+ * Function: gVectorPopBack
  * ------------------------
- * Pop an element from the back of the vector
+ * Remove an element from the back of the vector
  * It decreases length of the vector.
  *
  * @param vector	Vector to be popped
@@ -182,6 +182,52 @@ void *gVectorSet(gVector *vector, size_t pos, void *val);
  * @return			Pointer to the inserted value
  */
 void *gVectorInsert(gVector *vector, size_t pos, void *val);
+
+/* Optional Queue wrapper */
+#ifdef	ENABLE_QUEUE
+
+typedef gVector gQueue;
+
+/**
+ * Function: gQueueCreate
+ * ----------------------
+ * Create the queue
+ *
+ * @param queue	Queue being created
+ * @param size	Size of each element in the queue
+ */
+#define	gQueueCreate(queue,size)	gVectorCreate(queue,size)
+
+/**
+ * Function: gQueueInsert
+ * --------------------
+ * Add an element to the back of the queue
+ *
+ * @param queue	Pointer to the pushed queue
+ * @param val	Pointer to the pushing value
+ */
+#define	gQueueInsert(queue,val)	gVectorInsert(queue,0,val)
+
+/** Function: gQueueRemove
+ * --------------------
+ * Remove an element from the front of the queue
+ *
+ * @param queue	Pointer to the popped queue
+ *
+ * @return	Pointer to the popped value
+ *		May be overrided by the next push
+ */
+#define	gQueueRemove(queue)	gVectorPopBack(queue)
+
+/**
+ * Function: gQueueDestroy
+ * -----------------------
+ * Destroy the queue
+ *
+ * @param queue	Queue being destroyed
+ */
+#define	gQueueDestroy(queue)	gVectorDestroy(queue)
+#endif
 
 /** @} */
 #endif

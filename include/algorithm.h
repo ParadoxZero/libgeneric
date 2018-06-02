@@ -21,17 +21,14 @@
  *   OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  *   SOFTWARE.
  */
-
 /**
- * @file	vqueue.h
+ * @file	algorithm.h
  *
- * @brief	Queue adapter for vector.
+ * @brief	Generic declarations for algorithms
  */
-#ifndef	DATA_STRUCTURE_QUEUE
-#define	DATA_STRUCTURE_QUEUE
-
-#include <stddef.h>	// size_t
-#define	ENABLE_QUEUE
-#include <generic/vector.h>
+#ifndef	ALGORITHM_H
+#define	ALGORITHM_H
+#include <generic.h>
+/* Merge Sort */
+#include <algorithm/mergesort.h>
 #endif
-

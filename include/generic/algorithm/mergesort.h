@@ -29,7 +29,7 @@
 #ifndef	ALGORITHM_MERGE_SORT_H
 #define	ALGORITHM_MERGE_SORT_H
 #include <stddef.h>	// size_t
-#include <algorithm.h>
+#include <generic/algorithm.h>
 /** @defgroup mergesort Merge Sort
  *
  * Merge sort is a sorting algorithm originally created by John von Neumann

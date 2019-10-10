@@ -87,7 +87,7 @@ static bnode_t* searchTree(gBST *bst, bnode_t *current_root, void *data);
  *  ------------------------------- */
 
 gBST* gBSTCreate(size_t elementSize, gDataCompare comparator) {
-    gBST *bst = malloc(sizeof(gBST));
+    gBST *bst = (gBST*)malloc(sizeof(gBST));
     if (bst == NULL){
         gErrorCode = G_ENOMEN;
         return NULL;
@@ -142,7 +142,7 @@ bnode_t *gBSTSearch(gBST *bst, void *data) {
  *  --------------------------------- */
 
 static bnode_t* createNode(void *item, size_t itemSize){
-    bnode_t *node = malloc(sizeof(bnode_t));
+    bnode_t *node = (bnode_t*)malloc(sizeof(bnode_t));
     if(node == NULL){
         gErrorCode = G_ENOMEN;
         return NULL;
